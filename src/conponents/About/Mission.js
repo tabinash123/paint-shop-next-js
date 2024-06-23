@@ -97,7 +97,7 @@ const Mission = () => {
                 <PaletteIcon />
               </IconWrapper>
               <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                At OurPaintShop, we understand that choosing the perfect paint color can transform your living space. Our extensive collection of high-quality paint colors and finishes ensures that you'll find the ideal shade to reflect your unique style and personality.
+                At OurPaintShop, we understand that choosing the perfect paint color can transform your living space. Our extensive collection of high-quality paint colors and finishes ensures that you will find the ideal shade to reflect your unique style and personality.
               </TypographyStyled>
               <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
                 From calming neutrals to vibrant hues, our curated selection offers endless possibilities for enhancing the beauty and atmosphere of your home. With our easy-to-use online platform, you can explore, visualize, and select the perfect colors with confidence and convenience.
