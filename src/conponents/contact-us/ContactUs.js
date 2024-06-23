@@ -53,7 +53,7 @@ const ContactUs = () => {
                 Contact Us
               </Typography>
               <Typography variant="subtitle1">
-                We'd love to hear from you. Please fill out the form below.
+                We would  love to hear from you. Please fill out the form below.
               </Typography>
             </Header>
 

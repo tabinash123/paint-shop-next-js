@@ -128,7 +128,7 @@ const OwnerSection = () => {
               Owner
             </Title>
             <Bio variant="body2"  style={{marginTop:'5px', fontSize:"10px",fontWeight:"500",fontFamily:"Poppins" }} >
-              John Doe is the visionary founder of PaintShop, bringing over 20 years of experience in the industry. His dedication to excellence and innovation drives the company's success and growth.
+              John Doe is the visionary founder of PaintShop, bringing over 20 years of experience in the industry. His dedication to excellence and innovation drives the company success and growth.
 
               Contact::
             </Bio>
