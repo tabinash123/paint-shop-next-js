@@ -130,13 +130,13 @@ const Mission = () => {
                 <PaletteIcon />
               </IconWrapper>
               <Paragraph>
-                At SNS Paint, we believe that the right paint color can transform any space. Our mission is to provide you with the highest quality paints that allow you to express your personality and style. Whether you're looking for a calming neutral or a bold statement color, we've got you covered.
+                At SNS Paint, we believe that the right paint color can transform any space. Our mission is to provide you with the highest quality paints that allow you to express your personality and style. Whether you are looking for a calming neutral or a bold statement color, we have got you covered.
               </Paragraph>
               <Paragraph>
-                We understand that choosing the perfect color can be daunting. That's why we've created an easy-to-use online platform to help you visualize and select the perfect shades for your home. With SNS Paint, you can explore a world of color possibilities right from the comfort of your home.
+                We understand that choosing the perfect color can be daunting. That is why we have created an easy-to-use online platform to help you visualize and select the perfect shades for your home. With SNS Paint, you can explore a world of color possibilities right from the comfort of your home.
               </Paragraph>
               <Paragraph>
-                Whether you're updating a single room or embarking on a full home makeover, we're here to help every step of the way. Let's make your home a place you'll love to come back to, with colors that truly represent you.
+                Whether you are updating a single room or embarking on a full home makeover, we are here to help every step of the way. Let's make your home a place you will love to come back to, with colors that truly represent you.
               </Paragraph>
             </TextWrapper>
           </div>
@@ -156,10 +156,10 @@ const Mission = () => {
                 At SNS Paint, we aim to revolutionize the way you choose colors for your home. We know that the right color can make all the difference, and our goal is to make the selection process as easy and enjoyable as possible.
               </Paragraph>
               <Paragraph>
-                Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they'll look in your space, taking the guesswork out of the equation.
+                Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they will look in your space, taking the guesswork out of the equation.
               </Paragraph>
               <Paragraph>
-                Whether you're a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let's work together to turn your vision into reality, with beautiful colors that inspire and delight.
+                Whether you are a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let's work together to turn your vision into reality, with beautiful colors that inspire and delight.
               </Paragraph>
             </TextWrapper>
           </div>

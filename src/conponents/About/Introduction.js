@@ -86,7 +86,7 @@ const Introduction = () => {
           <br/><br/>
           At SNS Paint, we are committed to providing exceptional customer service and expert advice to help you achieve the best results. Our knowledgeable team is here to guide you through every step of your painting journey, from selecting the right products to offering tips on application techniques. Whether you are refreshing a single room or undertaking a major renovation, SNS Paint has everything you need to bring your vision to life.
           <br/><br/>
-          Visit us today and discover why SNS Paint is the preferred choice for quality paints and professional service in Kathmandu. Let's work together to create beautiful, inspiring spaces with colors that truly reflect your unique style.
+          Visit us today and discover why SNS Paint is the preferred choice for quality paints and professional service in Kathmandu. Let us work together to create beautiful, inspiring spaces with colors that truly reflect your unique style.
         </Mission>
       </TextContainer>
       <ImageContainer>

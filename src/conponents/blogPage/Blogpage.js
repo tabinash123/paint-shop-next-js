@@ -132,7 +132,7 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Overview</ListItemTitle>
             <ListItemContent>
-              The right paint can make a big difference in the look and durability of your home. When choosing paint, consider each room's needs and the surface you are painting. High-traffic areas like kitchens and bathrooms need more durable, washable paints.
+              The right paint can make a big difference in the look and durability of your home. When choosing paint, consider each room needs and the surface you are painting. High-traffic areas like kitchens and bathrooms need more durable, washable paints.
             </ListItemContent>
           </ListItem>
           <ListItem>
