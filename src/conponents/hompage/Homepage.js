@@ -1,35 +1,25 @@
-import CategorySection from './CategorySection'
-import ProductHighlights from './ProductHighlights'
+import BestSellingProducts from './BestSellingProducts'
 import FAQ from './FAQ'
 import Costumer from './Costumer'
-// import Header from '../Header'
-// import Banner2 from './Banner2'
-import Hero from '../Hero'
 import WhyChooseUsSection from './WhyToChooseUs'
-import Testimonial from '../Testimonial'
 import NewsCard from './Blog'
 import Intro from './Intro'
-// import ProductPage from '../productpage/ProductDisplay'
-// import Banner from '../Banner'
-// import banner2 from '../../assets/Banner2.jpg'
- 
-
+import CategorySection from './CategorySection'
 const Homepage = () => {
   return (
-    <div style={{backgroundColor:"#fff"}} >
-      <Hero />
+    <>
+
       <Intro />
-      <ProductHighlights />
+      <BestSellingProducts />
       <WhyChooseUsSection />
+      <CategorySection />
       <NewsCard />  
       <Costumer />
       <FAQ />
 
 
-      {/* <Banner imageSrc={banner2} altText={"banner-image"} /> */}
-      {/* <Testimonial /> */}
 
-    </div>
+    </>
   )
 }
 

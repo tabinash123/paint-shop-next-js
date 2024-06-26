@@ -1,11 +1,10 @@
 "use client"
 import React from 'react';
-import { Container, Typography, Grid, Paper, Divider } from '@mui/material';
-import PaletteIcon from '@mui/icons-material/Palette';
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import mission from '../../../public/assets/mission.PNG';
 import story from '../../../public/assets/story.PNG';
+import PaletteIcon from '@mui/icons-material/Palette';
 
 const fadeIn = keyframes`
   from {
@@ -24,11 +23,20 @@ const MissionSection = styled.section`
   font-family: 'Poppins', sans-serif;
 `;
 
-const ContainerWrapper = styled(Container)`
-  & > .MuiGrid-container {
-    display: flex;
-    align-items: center;
-  }
+const ContainerWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  align-items: center;
 `;
 
 const TextWrapper = styled.div`
@@ -36,7 +44,7 @@ const TextWrapper = styled.div`
   text-align: left;
 `;
 
-const ImageWrapper = styled(Paper)`
+const ImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 4px;
@@ -77,76 +85,89 @@ const IconWrapper = styled.div`
   }
 `;
 
-const TypographyStyled = styled(Typography)`
-  font-family: 'Poppins', sans-serif !important;
+const Heading = styled.h2`
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+const Paragraph = styled.p`
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const DividerStyled = styled.div`
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
 `;
 
 const Mission = () => {
   return (
     <MissionSection>
-            <Divider style={{ width: '80%', marginTop: 20, marginBottom: 20 }} />
-
+      <DividerStyled />
       <ContainerWrapper>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <TypographyStyled variant="h4" component="h2" gutterBottom style={{ fontSize: '28px', fontWeight: '700', lineHeight: '1.3' }}>
-              OUR MISSION: Finding a World of Color for Your Home
-            </TypographyStyled>
+        <GridContainer>
+          <div>
+            <Heading>Our Mission: Bringing Color to Your Life</Heading>
             <TextWrapper>
               <IconWrapper>
                 <PaletteIcon />
               </IconWrapper>
-              <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                At OurPaintShop, we understand that choosing the perfect paint color can transform your living space. Our extensive collection of high-quality paint colors and finishes ensures that you will find the ideal shade to reflect your unique style and personality.
-              </TypographyStyled>
-              <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                From calming neutrals to vibrant hues, our curated selection offers endless possibilities for enhancing the beauty and atmosphere of your home. With our easy-to-use online platform, you can explore, visualize, and select the perfect colors with confidence and convenience.
-              </TypographyStyled>
-              <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                Whether you are  refreshing a single room or embarking on a full home makeover, OurPaintShop is your trusted partner in creating spaces that inspire and delight.
-              </TypographyStyled>
+              <Paragraph>
+                At SNS Paint, we believe that the right paint color can transform any space. Our mission is to provide you with the highest quality paints that allow you to express your personality and style. Whether you're looking for a calming neutral or a bold statement color, we've got you covered.
+              </Paragraph>
+              <Paragraph>
+                We understand that choosing the perfect color can be daunting. That's why we've created an easy-to-use online platform to help you visualize and select the perfect shades for your home. With SNS Paint, you can explore a world of color possibilities right from the comfort of your home.
+              </Paragraph>
+              <Paragraph>
+                Whether you're updating a single room or embarking on a full home makeover, we're here to help every step of the way. Let's make your home a place you'll love to come back to, with colors that truly represent you.
+              </Paragraph>
             </TextWrapper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ImageWrapper>
-              <Image src={mission} alt="color-palette" layout="responsive" />
-              <GradientOverlay />
-            </ImageWrapper>
-          </Grid>
-        </Grid>
+          </div>
+          <ImageWrapper>
+            <Image src={mission} alt="Our mission" layout="responsive" />
+            <GradientOverlay />
+          </ImageWrapper>
+        </GridContainer>
       </ContainerWrapper>
-      <Divider style={{ width: '80%', marginTop: 20, marginBottom: 20 }} />
+      <DividerStyled />
       <ContainerWrapper>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <TypographyStyled 
-  variant="h4" 
-  component="h2" 
-  gutterBottom 
-  style={{ fontSize: '28px', fontWeight: '700', lineHeight: '1.3' }}
->
-  OUR VISION: Transforming the Way You Experience Color Selection
-</TypographyStyled>
-<TextWrapper>
-  <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-    OurPaintShop is committed to redefining the way homeowners explore and select paint colors. With our innovative online platform, we are revolutionizing the color selection process, making it more inspiring, convenient, and enjoyable than ever before.
-  </TypographyStyled>
-  <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-    Gone are the days of endless trips to the store and frustrating color guesswork. Our advanced tools and resources empower you to visualize and experiment with different colors and combinations, allowing you to see exactly how your chosen colors will look in your space.
-  </TypographyStyled>
-  <TypographyStyled variant="body1" paragraph style={{ fontSize: '16px', lineHeight: '1.6' }}>
-    With OurPaintShop, you can say goodbye to color anxiety and confidently bring your vision to life. Whether you are a seasoned DIY enthusiast or a first-time homeowner, our platform makes it easy to create beautiful, personalized spaces that you will love coming home to.
-  </TypographyStyled>
-</TextWrapper>
-
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ImageWrapper>
-              <Image src={story} alt="color-selection" layout="responsive" />
-              <GradientOverlay />
-            </ImageWrapper>
-          </Grid>
-        </Grid>
+        <GridContainer>
+          <div>
+            <Heading>Our Vision: Transforming Color Selection</Heading>
+            <TextWrapper>
+              <Paragraph>
+                At SNS Paint, we aim to revolutionize the way you choose colors for your home. We know that the right color can make all the difference, and our goal is to make the selection process as easy and enjoyable as possible.
+              </Paragraph>
+              <Paragraph>
+                Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they'll look in your space, taking the guesswork out of the equation.
+              </Paragraph>
+              <Paragraph>
+                Whether you're a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let's work together to turn your vision into reality, with beautiful colors that inspire and delight.
+              </Paragraph>
+            </TextWrapper>
+          </div>
+          <ImageWrapper>
+            <Image src={story} alt="Our story" layout="responsive" />
+            <GradientOverlay />
+          </ImageWrapper>
+        </GridContainer>
       </ContainerWrapper>
     </MissionSection>
   );

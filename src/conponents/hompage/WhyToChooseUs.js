@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typography from '@mui/material/Typography';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import SupportIcon from '@mui/icons-material/Support';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import reasonsData from '../../data/reasonsData';
 
 const SectionContainer = styled.div`
   padding: 30px 10px;
@@ -12,14 +12,21 @@ const SectionContainer = styled.div`
   text-align: center;
 `;
 
-const SectionHeader = styled(Typography)`
+const SectionHeader = styled.h4`
   background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  margin-top: 50px;
   font-family: 'Roboto', sans-serif;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const ReasonsContainer = styled.div`
@@ -50,53 +57,43 @@ const ReasonCard = styled.div`
 const IconContainer = styled.div`
   margin-bottom: 10px;
   color: #FF5733;
+  font-size: 2rem;
 `;
 
-const ReasonTitle = styled(Typography)`
+const ReasonTitle = styled.h6`
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 5px;
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.75rem;
+  }
 `;
 
-const ReasonDescription = styled(Typography)`
+const ReasonDescription = styled.p`
   font-family: 'Roboto', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #555;
+  @media (max-width: 600px) {
+    font-size: 0.75rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.625rem;
+  }
 `;
-
-const reasonsData = [
-  {
-    icon: <VerifiedUserIcon fontSize="large" />,
-    title: "Trusted Quality",
-    description: "We provide the highest quality products that meet industry standards.",
-  },
-  {
-    icon: <ThumbUpIcon fontSize="large" />,
-    title: "Customer Satisfaction",
-    description: "Our customers' satisfaction is our top priority.",
-  },
-  {
-    icon: <SupportIcon fontSize="large" />,
-    title: "24/7 Support",
-    description: "We offer round-the-clock support to assist you whenever you need it.",
-  },
-  {
-    icon: <LocalShippingIcon fontSize="large" />,
-    title: "Fast Delivery",
-    description: "We ensure quick and safe delivery of your orders.",
-  },
-];
 
 const WhyChooseUs = () => {
   return (
     <SectionContainer>
-      <SectionHeader variant="h4">Why Choose Us</SectionHeader>
+      <SectionHeader>Why Choose Us</SectionHeader>
       <ReasonsContainer>
         {reasonsData.map((reason, index) => (
           <ReasonCard key={index}>
             <IconContainer>{reason.icon}</IconContainer>
-            <ReasonTitle variant="h6">{reason.title}</ReasonTitle>
+            <ReasonTitle>{reason.title}</ReasonTitle>
             <ReasonDescription>{reason.description}</ReasonDescription>
           </ReasonCard>
         ))}

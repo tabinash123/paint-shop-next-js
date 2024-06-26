@@ -1,4 +1,3 @@
-// components/Carousel.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -16,13 +15,12 @@ const CarouselContainer = styled.div`
 
 const CarouselTrack = styled.div`
   display: flex;
-  width: calc(100% * 2); // Double the width for infinite loop effect
+  width: calc(200%); /* Double the width for infinite loop effect */
   animation: ${slide} 15s linear infinite;
 `;
 
 const CarouselItem = styled.div`
-  width: auto;
-  min-width: 25%;
+  flex: 0 0 25%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -31,9 +29,21 @@ const CarouselItem = styled.div`
   padding: 20px;
   background-color: #f5f5f5;
   flex-shrink: 0;
+
+  @media (max-width: 1200px) {
+    flex: 0 0 33.33%;
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 50%;
+  }
+
+  @media (max-width: 480px) {
+    flex: 0 0 100%;
+  }
 `;
 
-const Costumer = () => {
+const Carousel = () => {
   const items = ['Fast Painting', 'Coloring', 'Wall Paint', 'Pencil Line'];
 
   // Duplicate items array to create a seamless loop effect
@@ -50,4 +60,4 @@ const Costumer = () => {
   );
 };
 
-export default Costumer;
+export default Carousel;

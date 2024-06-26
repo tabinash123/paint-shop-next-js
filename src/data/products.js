@@ -34,7 +34,7 @@ const products = [
         category: "Interior Wall Paint",
         subcategories: [
             {
-                subcategory: "Plain Finish",
+                subcategory: "Plain Finishe",
                 products: [
                     { name: "Tractor Emulsion", imageUrl: asianpaint },
                     { name: "Premium Emulsion", imageUrl: asianpaint },

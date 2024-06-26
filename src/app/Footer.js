@@ -1,70 +1,31 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Box, Typography, IconButton, Grid } from '@mui/material';
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <FooterContent container spacing={4}>
-        <Grid item xs={12} md={3}>
+      <FooterContent>
+        <FooterGrid>
           <FooterSection>
-            <FooterTitle>YourPaintShop</FooterTitle>
-            <FooterText variant="body2">
-              &copy; {new Date().getFullYear()} YourPaintShop. All rights reserved.
-            </FooterText>
+            <FooterTitle>SnS Paint</FooterTitle>
+            <FooterText>&copy; {new Date().getFullYear()} SnS Paint. All rights reserved.</FooterText>
           </FooterSection>
-        </Grid>
-        <Grid item xs={12} md={3}>
           <FooterSection>
             <FooterSubtitle>Quick Links</FooterSubtitle>
-            <FooterLink href="/" passHref>
-              Home
-            </FooterLink>
-            <FooterLink href="/products" passHref>
-              Products
-            </FooterLink>
-            <FooterLink href="/about" passHref>
-              About
-            </FooterLink>
-            <FooterLink href="/contact" passHref>
-              Contact
-            </FooterLink>
+            <FooterLink href="/">Home</FooterLink>
+            <FooterLink href="/products">Products</FooterLink>
+            <FooterLink href="/about">About</FooterLink>
+            <FooterLink href="/contact">Contact</FooterLink>
           </FooterSection>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <FooterSection>
-            <FooterSubtitle>Follow Us</FooterSubtitle>
-            <SocialMedia>
-              <IconButtonStyled color="inherit" href="https://facebook.com" target="_blank">
-                <Facebook />
-              </IconButtonStyled>
-              <IconButtonStyled color="inherit" href="https://twitter.com" target="_blank">
-                <Twitter />
-              </IconButtonStyled>
-              <IconButtonStyled color="inherit" href="https://instagram.com" target="_blank">
-                <Instagram />
-              </IconButtonStyled>
-              <IconButtonStyled color="inherit" href="https://linkedin.com" target="_blank">
-                <LinkedIn />
-              </IconButtonStyled>
-            </SocialMedia>
-          </FooterSection>
-        </Grid>
-        <Grid item xs={12} md={3}>
+          <FooterSection></FooterSection>
           <FooterSection>
             <FooterSubtitle>Contact Us</FooterSubtitle>
-            <FooterText variant="body2">
-              123 Paint Street, Color City, Paintland
-            </FooterText>
-            <FooterText variant="body2">
-              Email: contact@yourpaintshop.com
-            </FooterText>
-            <FooterText variant="body2">
-              Phone: +123 456 7890
-            </FooterText>
+            <FooterText>Sesmati, Kathmandu, Nepal</FooterText>
+            <FooterText>Email: hariaryal222@gmail.com</FooterText>
+            <FooterText>Phone: +123 456 7890</FooterText>
           </FooterSection>
-        </Grid>
+        </FooterGrid>
       </FooterContent>
     </FooterContainer>
   );
@@ -72,8 +33,8 @@ const Footer = () => {
 
 export default Footer;
 
-const FooterContainer = styled(Box)`
-  background: linear-gradient(135deg, #2C3E50 0%, #4A4E69 25%, #6A5ACD 50%, #8B008B 75%, #FFD700 100%);
+const FooterContainer = styled.footer`
+  background: linear-gradient(90deg, #1954a8, #5F2477, #BA3966, #d02C45, #d67824);
   color: #fff;
   padding: 2rem 1rem;
   text-align: center;
@@ -83,9 +44,15 @@ const FooterContainer = styled(Box)`
   }
 `;
 
-const FooterContent = styled(Grid)`
+const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+`;
+
+const FooterGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 `;
 
 const FooterSection = styled.div`
@@ -95,36 +62,30 @@ const FooterSection = styled.div`
   }
 `;
 
-const FooterTitle = styled(Typography).attrs({
-  variant: 'h6',
-  component: 'div'
-})`
+const FooterTitle = styled.h6`
   margin-bottom: 0.5rem;
-  color: #FFD700; /* Gold */
+  color: #fff; 
   font-weight: bold;
 `;
 
-const FooterSubtitle = styled(Typography).attrs({
-  variant: 'h6',
-  component: 'div'
-})`
+const FooterSubtitle = styled.h6`
   margin-bottom: 0.5rem;
-  color: #FFD700; /* Gold */
+  color: #FFD700;
 `;
 
 const FooterLink = styled(Link)`
   display: block;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #FFD700;
   text-decoration: none;
   &:hover {
-    color: #FFD700; /* Gold */
+    color: #FFD700;
     text-decoration: underline;
   }
 `;
 
-const FooterText = styled(Typography)`
-  color: #FFD700; /* Gold */
+const FooterText = styled.p`
+  color: #FFD700;
 `;
 
 const SocialMedia = styled.div`
@@ -136,9 +97,12 @@ const SocialMedia = styled.div`
   }
 `;
 
-const IconButtonStyled = styled(IconButton)`
+const IconButtonStyled = styled.button`
+  background: none;
+  border: none;
   color: #fff;
+  cursor: pointer;
   &:hover {
-    color: #FFD700; /* Gold */
+    color: #FFD700;
   }
 `;

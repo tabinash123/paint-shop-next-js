@@ -1,18 +1,15 @@
 "use client"
 import React from 'react';
 import styled from 'styled-components';
-import Hero from '../Hero';
-import store from '../../../public/assets/paint-store.jpg'
+import store from '../../../public/assets/paint-store.jpg';
 import Image from 'next/image';
-
 
 const IntroSection = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px 50px;
-  
+  padding: 50px;
   background-color: #f9f9f9;
   color: #333;
   @media (max-width: 768px) {
@@ -39,12 +36,11 @@ const ImageContainer = styled.div`
   }
 `;
 
-
-
 const Headline = styled.h1`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
   @media (max-width: 1024px) {
     font-size: 32px;
   }
@@ -54,8 +50,8 @@ const Headline = styled.h1`
 `;
 
 const Subheadline = styled.h2`
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   margin-bottom: 20px;
   color: #666;
   @media (max-width: 1024px) {
@@ -67,57 +63,36 @@ const Subheadline = styled.h2`
 `;
 
 const Mission = styled.p`
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 600px;
-  margin: 0 auto 30px;
   @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+  @media (max-width: 768px) {
     font-size: 14px;
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
-
-const CTAButton = styled.a`
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff0049;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-weight: 600;
-
-  &:hover {
-    background-color: #e60042;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 8px 18px;
-  }
-  @media (max-width: 768px) {
-    padding: 6px 16px;
   }
 `;
 
 const Introduction = () => {
   return (
-    <div>
-      <Hero />
     <IntroSection>
       <TextContainer>
-        <Headline>Who we are </Headline>
-        <Subheadline>Innovative paint solutions designed to elevate your living and working spaces.</Subheadline>
-        <Mission>Paintmandu is an interior and exterior house painting company in Nepal. We provide professional house painting service to homes, commercial spaces, and even apartment buildings. We are committed to providing high-quality paints and different painting methods so that you can choose the best option according to your need. Our team is well-trained in the art of painting. We have aesthetic sense and creativity that ensures each house painting project turns out beautifully, whether it is an exterior or interior home paint service, or for commercial spaces or apartment buildings. We take great pride in our work.</Mission>
-        {/* <CTAButton href="#about-us">Discover our story</CTAButton> */}
+        <Headline>Welcome to SNS Paint</Headline>
+        <Subheadline>Your Trusted Paint Store in Kathmandu</Subheadline>
+        <Mission>
+          Located in the heart of Kathmandu, SNS Paint is your go-to destination for all your painting needs. Our shop is conveniently situated to serve both homeowners and contractors in the vibrant city of Kathmandu, Nepal. We pride ourselves on offering a wide range of high-quality paints, from soothing neutrals to bold, vibrant hues, ensuring you find the perfect color for any project.
+          <br/><br/>
+          At SNS Paint, we are committed to providing exceptional customer service and expert advice to help you achieve the best results. Our knowledgeable team is here to guide you through every step of your painting journey, from selecting the right products to offering tips on application techniques. Whether you are refreshing a single room or undertaking a major renovation, SNS Paint has everything you need to bring your vision to life.
+          <br/><br/>
+          Visit us today and discover why SNS Paint is the preferred choice for quality paints and professional service in Kathmandu. Let's work together to create beautiful, inspiring spaces with colors that truly reflect your unique style.
+        </Mission>
       </TextContainer>
       <ImageContainer>
-              <Image src={store} alt="color-palette" layout="responsive" />
+        <Image src={store} alt="SNS Paint Store" layout="responsive" />
       </ImageContainer>
     </IntroSection>
-    </div>
   );
 };
 

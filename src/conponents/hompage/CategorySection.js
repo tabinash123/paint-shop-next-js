@@ -1,9 +1,6 @@
-
-
 "use client"
 import React from 'react';
 import styled from 'styled-components';
-import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import demoCategories from '@/data/demoCategories'; // Make sure the path is correct
@@ -20,35 +17,18 @@ const SectionContainer = styled.div`
   margin: 0 auto;
 `;
 
-const StyledCard = styled(Card)`
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-radius: 15px;
-  margin: 10px auto;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+const Title = styled.h1`
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
   }
-`;
-
-const StyledCardContent = styled(CardContent)`
-  background-color: #f5f5f5;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 5px;
-`;
-
-const StyledCardMedia = styled.div`
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  height: 150px;
-  position: relative;
-  overflow: hidden;
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const GridContainer = styled.div`
@@ -72,25 +52,57 @@ const GridContainer = styled.div`
   }
 `;
 
+const StyledCard = styled.div`
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 15px;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const StyledCardMedia = styled.div`
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+`;
+
+const StyledCardContent = styled.div`
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+`;
+
 const CategorySection = () => {
   return (
     <SectionContainer>
-      <Typography style={{ marginTop: '20px', marginBottom: '30px' }} variant="h5" component="h1" gutterBottom>
-        SHOP BY <strong>CATEGORY</strong>
-      </Typography>
+      <Title>SHOP BY <strong>CATEGORY</strong></Title>
 
       <GridContainer>
         {demoCategories.map((category) => (
-          <Link key={category.id} href="/product" passHref legacyBehavior>
+          <Link key={category.id} href="/products" passHref legacyBehavior>
             <a style={{ textDecoration: 'none' }}>
               <StyledCard>
                 <StyledCardMedia>
                   <Image src={category.imageUrl} alt={category.title} layout="fill" objectFit="cover" />
                 </StyledCardMedia>
                 <StyledCardContent>
-                  <Typography variant="body2" component="p">
-                    {category.title}
-                  </Typography>
+                  {category.title}
                 </StyledCardContent>
               </StyledCard>
             </a>

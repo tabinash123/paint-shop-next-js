@@ -1,7 +1,8 @@
 
 import Introduction from './Introduction'
 import Mission from './Mission'
-import Testimoninal from '../Testimonial'
+import WhyUs from './WhyUs'
+import UserReviews from './UserReview'
 
 
 
@@ -10,7 +11,8 @@ const About = () => {
     <div>
       <Introduction />
       <Mission />
-      <Testimoninal />
+      <WhyUs />
+      <UserReviews/>
     </div>
   )
 }

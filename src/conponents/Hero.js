@@ -11,12 +11,9 @@ import hero4 from '../../public/assets/carausal/hero1-4.PNG';
 
 const HeroSection = styled.section`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
-  margin-top: -5px;
 
   .carousel .control-dots {
     position: absolute;
@@ -35,7 +32,7 @@ const HeroSection = styled.section`
     border-radius: 50%;
     width: 6px;
     height: 6px;
-    margin: 0 5px;
+    
     opacity: 0.6;
     transition: opacity 0.25s ease-in-out, background 0.25s ease-in-out, transform 0.25s ease-in-out;
   }
@@ -52,7 +49,7 @@ const HeroSection = styled.section`
 
 const HeroImageContainer = styled.div`
   width: 100%;
-  height: auto;
+
 `;
 
 const Hero = () => {
@@ -68,7 +65,7 @@ const Hero = () => {
       <Carousel autoPlay infiniteLoop>
         {images.map((image, index) => (
           <HeroImageContainer key={index}>
-            <Image src={image.src} alt={image.alt} layout="responsive"  />
+            <Image src={image.src} alt={image.alt} height="50vh"  />
           </HeroImageContainer>
         ))}
       </Carousel>

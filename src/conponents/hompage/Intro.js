@@ -1,87 +1,126 @@
 import React from 'react';
-import { Box, Typography, Button, Divider } from '@mui/material';
 import styled from 'styled-components';
 
-const Container = styled(Box)`
+const Container = styled.div`
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: #fff;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
   margin: auto;
-  margin-top: 40px;
   font-family: 'Roboto', sans-serif;
-`;
-
-const GradientHeader = styled(Typography)`
-  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 2.5rem;
-  font-family: Arial, sans-serif;
-`;
-
-const SubHeader = styled(Typography)`
-  color: #C70039;
-  margin-bottom: 20px;
-  font-size: 1.25rem;
-  font-family: Arial, sans-serif;
-`;
-
-const InfoText = styled(Typography)`
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-size: 1rem;
-  font-family: Arial, sans-serif;
-`;
-
-const StyledButton = styled(Button)`
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #900C3F;
-  color: #fff;
-  font-size: 1rem;
-  &:hover {
-    background-color: #581845;
+  @media (max-width: 600px) {
+    padding: 20px;
   }
 `;
 
-const DividerStyled = styled(Divider)`
-  margin: 20px 0;
+const GradientHeader = styled.h4`
+  background: linear-gradient(90deg, #FF5733, #FF8D1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: Arial, sans-serif;
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const SubHeader = styled.p`
+  color: #C70039;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  font-family: Arial, sans-serif;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
+`;
+
+const InfoText = styled.p`
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.875rem;
+  }
+`;
+
+const StyledButton = styled.a`
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 28px;
+  background-color: #FF5733;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  text-decoration: none;
+  &:hover {
+    background-color: #FF8D1A;
+  }
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.875rem;
+    padding: 10px 20px;
+  }
+`;
+
+const DividerStyled = styled.hr`
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+`;
+
+const List = styled.ul`
+  text-align: left;
+  padding-left: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  @media (max-width: 600px) {
+    padding-left: 1rem;
+  }
+  @media (max-width: 400px) {
+    padding-left: 0.75rem;
+  }
 `;
 
 const Intro = () => {
   return (
     <Container>
-      <GradientHeader variant="h4">Transform Your Space with [Your Brand]</GradientHeader>
-      <SubHeader variant="body1">
-        Discover the Perfect Palette to Refresh Every Room
-      </SubHeader>
+      <GradientHeader>Welcome to SnS Paint</GradientHeader>
+      <SubHeader>Your Premier Paint Shop in Kathmandu, Nepal</SubHeader>
       <DividerStyled />
-      <InfoText variant="body2">
-        At [Your Brand], we believe in the power of color to change the way you feel about your home. Our premium collection of paints is designed to bring vibrancy, durability, and elegance to your living spaces. From serene blues to energizing reds, we offer a spectrum of shades that cater to every mood and style.
+      <InfoText>
+        Discover SnS Paint, the ultimate destination for premium house painting colors in Kathmandu. Our extensive range of vibrant, eco-friendly paints is perfect for any home makeover. Whether you’re looking to add a pop of color to your living room or refresh your entire home, we have the perfect shades to suit your style.
       </InfoText>
-      <InfoText variant="body2">
-        Why Choose [Your Brand]?
+      <InfoText>
+        At SnS Paint, we pride ourselves on offering:
       </InfoText>
-      <Box component="ul" sx={{ textAlign: 'left', paddingLeft: '1.25rem', marginBottom: '20px' }}>
-        <li>Extensive range of eco-friendly and non-toxic paints</li>
-        <li>Expert color consultation services</li>
-        <li>High durability with easy application</li>
+      <List>
+        <li>High-quality, eco-friendly paints</li>
+        <li>Expert color consultation</li>
+        <li>Durable and easy-to-apply products</li>
         <li>Stain-resistant and easy-to-clean finishes</li>
-      </Box>
-      <InfoText variant="body2">
-        Ready to transform your home? Explore our collection and find the perfect shade for your next project.
+      </List>
+      <InfoText>
+        Ready to transform your home? Visit us today and start creating your dream space with SnS Paint!
       </InfoText>
-      <StyledButton
-        variant="contained"
-        href="/shop"
-      >
-        Explore Our Collection
-      </StyledButton>
+      <StyledButton href="/products">Explore Our Collection</StyledButton>
     </Container>
   );
 };

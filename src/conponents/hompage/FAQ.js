@@ -1,54 +1,85 @@
-// pages/faq.js
-
 import React, { useState } from 'react';
-import { Container, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { styled } from '@mui/material/styles'; // Ensure the correct import
+import styled from 'styled-components';
 import Head from 'next/head';
 
-const SectionContainer = styled(Container)(({ theme }) => ({
-  padding: '40px 20px',
-  backgroundColor: '#fff',
-  color: 'black',
-  fontFamily: 'Arial, sans-serif',
-  textAlign: 'center',
-}));
+const SectionContainer = styled.div`
+  padding: 40px 20px;
+  background-color: #fff;
+  color: black;
+  font-family: 'Arial, sans-serif';
+  text-align: center;
+`;
 
-const Title = styled(Typography)({
-  fontSize: '2rem',
-  fontWeight: '600',
-  marginBottom: '1.5rem',
-  color: 'black',
-  textAlign: 'center',
-});
+const Title = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: black;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 1.75rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+  }
+`;
 
-const FAQContainer = styled('div')`
+const FAQContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
 `;
 
-const FAQItem = styled(Accordion)(({ theme }) => ({
-  marginBottom: theme.spacing(2),
-  border: '1px solid #e0e0e0',
-  borderRadius: '8px',
-  boxShadow: 'none',
-  '&:before': {
-    display: 'none',
-  },
-}));
+const FAQItem = styled.div`
+  margin-bottom: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
 
-const FAQQuestion = styled(Typography)({
-  fontSize: '1rem',
-  fontWeight: '500',
-  color: 'black',
-});
+  &.expanded {
+    max-height: 1000px;
+  }
 
-const FAQAnswer = styled(Typography)({
-  fontSize: '0.875rem',
-  color: 'black',
-  textAlign: 'left',
-});
+  &.collapsed {
+    max-height: 60px;
+  }
+`;
+
+const FAQSummary = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px;
+  background-color: #f5f5f5;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+`;
+
+const FAQQuestion = styled.p`
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  margin: 0;
+`;
+
+const FAQAnswer = styled.p`
+  font-size: 0.875rem;
+  color: black;
+  text-align: left;
+  margin: 16px;
+`;
+
+const ExpandIcon = styled.span`
+  font-size: 1.5rem;
+  color: #5F2477;
+  transform: rotate(${props => (props.expanded ? '180deg' : '0deg')});
+  transition: transform 0.3s ease-in-out;
+`;
 
 const faqData = [
   {
@@ -74,10 +105,10 @@ const faqData = [
 ];
 
 const FAQ = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleChange = (panel) => () => {
+    setExpanded(expanded === panel ? null : panel);
   };
 
   return (
@@ -85,25 +116,21 @@ const FAQ = () => {
       <Head>
         <title>Frequently Asked Questions</title>
       </Head>
-      <SectionContainer maxWidth="lg">
-        <Title variant="h2">Frequently Asked Questions</Title>
+      <SectionContainer>
+        <Title>Frequently Asked Questions</Title>
         <FAQContainer>
           {faqData.map((item, index) => (
             <FAQItem
               key={index}
-              expanded={expanded === `panel${index}`}
-              onChange={handleChange(`panel${index}`)}
+              className={expanded === `panel${index}` ? 'expanded' : 'collapsed'}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: '#5F2477' }} />}
-                aria-controls={`panel${index}bh-content`}
-                id={`panel${index}bh-header`}
-              >
+              <FAQSummary onClick={handleChange(`panel${index}`)}>
                 <FAQQuestion>{item.question}</FAQQuestion>
-              </AccordionSummary>
-              <AccordionDetails>
+                <ExpandIcon expanded={expanded === `panel${index}`}>▼</ExpandIcon>
+              </FAQSummary>
+              {expanded === `panel${index}` && (
                 <FAQAnswer>{item.answer}</FAQAnswer>
-              </AccordionDetails>
+              )}
             </FAQItem>
           ))}
         </FAQContainer>
