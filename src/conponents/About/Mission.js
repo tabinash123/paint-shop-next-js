@@ -136,7 +136,7 @@ const Mission = () => {
                 We understand that choosing the perfect color can be daunting. That is why we have created an easy-to-use online platform to help you visualize and select the perfect shades for your home. With SNS Paint, you can explore a world of color possibilities right from the comfort of your home.
               </Paragraph>
               <Paragraph>
-                Whether you are updating a single room or embarking on a full home makeover, we are here to help every step of the way. Let's make your home a place you will love to come back to, with colors that truly represent you.
+                Whether you are updating a single room or embarking on a full home makeover, we are here to help every step of the way. Let us make your home a place you will love to come back to, with colors that truly represent you.
               </Paragraph>
             </TextWrapper>
           </div>
@@ -159,7 +159,7 @@ const Mission = () => {
                 Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they will look in your space, taking the guesswork out of the equation.
               </Paragraph>
               <Paragraph>
-                Whether you are a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let's work together to turn your vision into reality, with beautiful colors that inspire and delight.
+                Whether you are a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let us work together to turn your vision into reality, with beautiful colors that inspire and delight.
               </Paragraph>
             </TextWrapper>
           </div>
