@@ -1,9 +1,9 @@
-import ProductPage from '../../conponents/products/ProductPage'
+// import ProductPage from '../../conponents/products/ProductPage'
 
 const page = () => {
   return (
       <>
-          <ProductPage />
+          {/* <ProductPage /> */} hello
       </>
   )
 }

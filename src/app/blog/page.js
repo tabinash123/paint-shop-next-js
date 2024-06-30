@@ -1,10 +1,12 @@
 
-import BlogPage from '@/conponents/blogPage/Blogpage'
-import React from 'react'
+// import BlogPage from '@/conponents/blogPage/Blogpage'
 
 const page = () => {
   return (
-    <><BlogPage /></>
+    <>
+      contact
+      {/* <BlogPage /> */}
+    </>
   )
 }
 
