@@ -4,6 +4,14 @@ import Image from 'next/image';
 import imag from '../../../public/assets/asian-paints.png';
 import bestsellingproducts from '../../data/bestsellingproducts';
 
+const colors = {
+  primary: '#900C3F',
+  secondary: '#FFD700',
+  gradient: 'linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845)',
+  textPrimary: '#666666',
+  textHighlight: '#FFFFFF',
+};
+
 const Container = styled.div`
   padding: 20px;
   text-align: center;
@@ -11,6 +19,7 @@ const Container = styled.div`
   margin: auto;
   margin-top: 20px;
   font-family: 'Roboto', sans-serif;
+
   @media (max-width: 600px) {
     padding: 10px;
     max-width: 100%;
@@ -18,50 +27,60 @@ const Container = styled.div`
 `;
 
 const GradientHeader = styled.h4`
-  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
+  background: ${colors.gradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
+
   @media (max-width: 600px) {
     font-size: 1.5rem;
     font-weight: 600;
   }
+
   @media (max-width: 400px) {
     font-size: 1.3rem;
     font-weight: 500;
   }
+
   @media (min-width: 601px) and (max-width: 960px) {
     font-size: 1.75rem;
   }
+
   @media (min-width: 961px) and (max-width: 1280px) {
     font-size: 2rem;
   }
+
   @media (min-width: 1281px) {
     font-size: 2.5rem;
   }
 `;
 
 const SubHeader = styled.p`
-  color: #666666;
+  color: ${colors.textPrimary};
   margin-bottom: 20px;
   font-size: 1rem;
   font-weight: 400;
+
   @media (max-width: 600px) {
     font-size: 0.875rem;
   }
+
   @media (max-width: 400px) {
     font-size: 0.75rem;
     font-weight: 300;
   }
+
   @media (min-width: 601px) and (max-width: 960px) {
     font-size: 1rem;
   }
+
   @media (min-width: 961px) and (max-width: 1280px) {
     font-size: 1.125rem;
   }
+
   @media (min-width: 1281px) {
     font-size: 1.25rem;
   }
@@ -71,6 +90,7 @@ const DotWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+
   & > span {
     height: 10px;
     width: 10px;
@@ -85,15 +105,19 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px;
+
   @media (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (min-width: 601px) and (max-width: 960px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
   @media (min-width: 961px) and (max-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
   }
+
   @media (min-width: 1281px) {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -104,11 +128,17 @@ const ProductCard = styled.div`
   max-width: 200px;
   margin: 0 auto;
   background-color: #ffffff;
+
   @media (max-width: 600px) {
     max-width: 150px;
   }
+
   @media (max-width: 400px) {
-    max-width: 120px;
+    max-width: 180px;
+  }
+
+  @media (min-width: 1281px) {
+    max-width: 250px;
   }
 `;
 
@@ -117,52 +147,67 @@ const ProductTitle = styled.h6`
   margin-top: 10px;
   font-size: 0.9rem;
   font-family: 'Montserrat', sans-serif;
+
   @media (max-width: 400px) {
     font-size: 0.7rem;
-   
   }
+
   @media (max-width: 600px) {
     font-size: 0.8rem;
-   
   }
+
   @media (min-width: 601px) and (max-width: 960px) {
     font-size: 0.95rem;
   }
+
   @media (min-width: 961px) and (max-width: 1280px) {
     font-size: 1.2rem;
   }
 
+  @media (min-width: 1281px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const StyledButton = styled.a`
   display: inline-block;
-  margin-top: 70px;
-  margin-bottom: 40px;
+  margin-top: 40px;
   padding: 12px 24px;
-  background-color: #900C3F;
-  color: #ffffff;
+  background-color: ${colors.primary};
+  color: ${colors.textHighlight};
   font-size: 1rem;
   font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
+
   &:hover {
-    background-color: #FFD700;
+    background-color: ${colors.secondary};
+    color: ${colors.primary};
   }
+
   @media (max-width: 600px) {
     font-size: 0.875rem;
     padding: 10px 20px;
   }
+
   @media (max-width: 400px) {
     font-size: 0.75rem;
     padding: 8px 16px;
     font-weight: 500;
   }
+
   @media (min-width: 601px) and (max-width: 960px) {
     font-size: 1rem;
     padding: 12px 24px;
   }
- 
+`;
+
+const ProductImage = styled(Image)`
+  @media (min-width: 800px) {
+    width: 180px;
+    height: 210px;
+  }
 `;
 
 const BestSellingProducts = () => {
@@ -179,7 +224,7 @@ const BestSellingProducts = () => {
       <ProductGrid>
         {bestsellingproducts.map((product, index) => (
           <ProductCard key={index}>
-            <Image
+            <ProductImage
               src={imag}
               alt={product.title}
               width={130}

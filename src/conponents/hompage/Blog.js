@@ -19,11 +19,38 @@ const MainContainer = styled.div`
 const Header = styled.h2`
   text-align: center;
   font-family: Arial, sans-serif;
+  marginBottom: 10px;
 `;
+
+const SubHeader = styled.h4`
+  text-align: center;
+   color: #666666;
+  margin: 15px 0;
+  font-size: 1rem;
+  font-weight: 400;
+  @media (max-width: 600px) {
+    font-size: 0.875rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+  @media (min-width: 601px) and (max-width: 960px) {
+    font-size: 1rem;
+  }
+  @media (min-width: 961px) and (max-width: 1280px) {
+    font-size: 1.125rem;
+  }
+  @media (min-width: 1281px) {
+    font-size: 1.25rem;
+  }
+`;
+
+
 
 const Dots = styled.div`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: -5px;
 `;
 
 const Dot = styled.span`
@@ -37,7 +64,7 @@ const Dot = styled.span`
 
 const Container = styled.div`
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -137,32 +164,16 @@ const ReadMoreText = styled.div`
   align-items: center;
   font-family: Arial, sans-serif;
   font-size: 10px;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-
-  ${CustomCard}:hover & {
-    opacity: 1;
-    transform: translateX(0);
-  }
+ 
 `;
 
-const ArrowIconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 0px;
-  transition: transform 0.6s ease;
-  transform: translateX(0);
 
-  ${CustomCard}:hover & {
-    transform: translateX(20px);
-  }
-`;
 
 const CardContainer = () => {
   return (
     <MainContainer>
       <Header>Blogs</Header>
+      <SubHeader>Stay updated with our latest blog posts</SubHeader>
       <Dots>
         <Dot color="#FF5733" />
         <Dot color="#C70039" />
@@ -198,9 +209,7 @@ const CardContainer = () => {
             </CustomCardContent>
             <CustomCardActions>
               <ReadMoreText>Read more</ReadMoreText>
-              <ArrowIconContainer>
-                <ArrowForwardIcon />
-              </ArrowIconContainer>
+              
             </CustomCardActions>
           </CustomCard>
         ))}

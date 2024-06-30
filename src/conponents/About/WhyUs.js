@@ -5,7 +5,7 @@ import { GiDiamondHard, GiMagnifyingGlass, GiSandsOfTime } from 'react-icons/gi'
 
 // --- Styled Components ---
 const WhyChooseUsSection = styled.section`
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   background-color: #f5f5f5;
 `;
 
@@ -15,18 +15,31 @@ const SectionTitle = styled.h2`
   font-weight: 600;
   text-align: center;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const FeatureGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 `;
 
 const FeatureItem = styled.div`
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   background-color: #fff;
   border-radius: 10px;
@@ -37,20 +50,41 @@ const FeatureItem = styled.div`
 `;
 
 const FeatureIcon = styled.div`
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #996633;
   margin-bottom: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const FeatureTitle = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const FeatureDescription = styled.p`
   color: #555;
   line-height: 1.6;
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    display:none;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+  }
 `;
 
 // --- WhyChooseUs Component ---

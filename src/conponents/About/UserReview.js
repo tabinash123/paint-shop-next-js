@@ -1,13 +1,18 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa'; // Star icon for ratings
 import Image from 'next/image';
+import reviews from '../../data/reviews'
 
 // --- Styled Components ---
 const ReviewsSection = styled.section`
   padding: 5rem 1rem;
   background-color: #f0f0f0; /* Light grey background */
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -31,11 +36,11 @@ const SectionTitle = styled.h2`
 
 const ReviewGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   justify-content: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
@@ -122,7 +127,7 @@ const ReviewDate = styled.p`
 `;
 
 const ReviewContent = styled.p`
-  color: #555; /* Medium grey color */
+  color: #555;
   line-height: 1.6;
   margin-top: 1rem;
 
@@ -164,59 +169,57 @@ const StarIcon = styled(FaStar)`
   }
 `;
 
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+`;
+
+const PaginationButton = styled.button`
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #555;
+  }
+
+  &:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+  }
+`;
+
 // --- UserReviews Component ---
 const UserReviews = () => {
-  const reviews = [
-    {
-      avatar: '/path/to/avatar1.jpg',
-      name: 'Arjun Thapa',
-      date: 'June 15, 2024',
-      rating: 5,
-      content: 'The quality of the paint is top-notch and the customer service was outstanding.'
-    },
-    {
-      avatar: '/path/to/avatar2.jpg',
-      name: 'Sita Gurung',
-      date: 'May 22, 2024',
-      rating: 4,
-      content: 'SNS Paints has an excellent selection of colors and their staff is very knowledgeable.'
-    },
-    {
-      avatar: '/path/to/avatar3.jpg',
-      name: 'Ramesh Shrestha',
-      date: 'April 10, 2024',
-      rating: 5,
-      content: 'The paint is of excellent quality and my house looks amazing.'
-    },
-    {
-      avatar: '/path/to/avatar4.jpg',
-      name: 'Nisha Rai',
-      date: 'March 5, 2024',
-      rating: 4,
-      content: 'Great products and the delivery was fast. Will definitely buy again.'
-    },
-    {
-      avatar: '/path/to/avatar5.jpg',
-      name: 'Binod Maharjan',
-      date: 'February 20, 2024',
-      rating: 5,
-      content: 'Highly recommend SNS Paints for their exceptional quality and service.'
-    },
-    {
-      avatar: '/path/to/avatar6.jpg',
-      name: 'Pratima KC',
-      date: 'January 15, 2024',
-      rating: 4,
-      content: 'I love the wide range of colors available. The staff were very helpful.'
-    },
-    // Add more reviews as needed
-  ];
+ 
+
+  // Pagination logic
+  const [currentPage, setCurrentPage] = useState(1);
+  const reviewsPerPage = window.innerWidth <= 768 ? 2 : 3;
+
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
 
   return (
     <ReviewsSection>
       <SectionTitle>Customer Reviews</SectionTitle>
       <ReviewGrid>
-        {reviews.map((review, index) => (
+        {currentReviews.map((review, index) => (
           <ReviewCard key={index}>
             <ReviewHeader>
               <ReviewerAvatar src={review.avatar} alt={review.name} width={50} height={50} />
@@ -234,6 +237,14 @@ const UserReviews = () => {
           </ReviewCard>
         ))}
       </ReviewGrid>
+      <Pagination>
+        <PaginationButton onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </PaginationButton>
+        <PaginationButton onClick={handleNextPage} disabled={indexOfLastReview >= reviews.length}>
+          Next
+        </PaginationButton>
+      </Pagination>
     </ReviewsSection>
   );
 };

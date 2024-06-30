@@ -11,7 +11,6 @@ export default function RootLayout({ children }) {
       <GlobalStyle />
       <body>
         <Header />
-        <Hero/>
         <main>{children}</main>
         <Footer />
       </body>

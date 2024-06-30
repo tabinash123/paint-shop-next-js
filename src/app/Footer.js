@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
@@ -18,7 +17,6 @@ const Footer = () => {
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/contact">Contact</FooterLink>
           </FooterSection>
-          <FooterSection></FooterSection>
           <FooterSection>
             <FooterSubtitle>Contact Us</FooterSubtitle>
             <FooterText>Sesmati, Kathmandu, Nepal</FooterText>
@@ -33,9 +31,18 @@ const Footer = () => {
 
 export default Footer;
 
+const colors = {
+  primary: '#391B49',
+  secondary: '#FFD700',
+  gradient: 'linear-gradient(90deg, #391B49, #5F2477, #BA3966, #F06C45, #F13E2C)',
+  textPrimary: '#ffffff',
+  textSecondary: '#fff',
+  linkHover: '#ffcc00',
+};
+
 const FooterContainer = styled.footer`
-  background: linear-gradient(90deg, #1954a8, #5F2477, #BA3966, #d02C45, #d67824);
-  color: #fff;
+  background: ${colors.gradient};
+  color: ${colors.textPrimary};
   padding: 2rem 1rem;
   text-align: center;
   @media (min-width: 768px) {
@@ -51,8 +58,16 @@ const FooterContent = styled.div`
 
 const FooterGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const FooterSection = styled.div`
@@ -64,45 +79,31 @@ const FooterSection = styled.div`
 
 const FooterTitle = styled.h6`
   margin-bottom: 0.5rem;
-  color: #fff; 
+  color: ${colors.textPrimary};
   font-weight: bold;
+  font-size: 1.25rem;
 `;
 
 const FooterSubtitle = styled.h6`
   margin-bottom: 0.5rem;
-  color: #FFD700;
+  color: ${colors.textSecondary};
+  font-weight: bold;
+  font-size: 1rem;
 `;
 
 const FooterLink = styled(Link)`
   display: block;
   margin-bottom: 0.5rem;
-  color: #FFD700;
+  color: ${colors.textPrimary};
   text-decoration: none;
+  font-size: 0.9rem;
   &:hover {
-    color: #FFD700;
+    color: ${colors.linkHover};
     text-decoration: underline;
   }
 `;
 
 const FooterText = styled.p`
-  color: #FFD700;
-`;
-
-const SocialMedia = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  @media (min-width: 768px) {
-    justify-content: flex-start;
-  }
-`;
-
-const IconButtonStyled = styled.button`
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  &:hover {
-    color: #FFD700;
-  }
+  color: ${colors.textPrimary};
+  font-size: 0.9rem;
 `;

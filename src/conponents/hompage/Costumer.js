@@ -50,10 +50,12 @@ const Carousel = () => {
   const loopItems = [...items, ...items];
 
   return (
-    <CarouselContainer>
+    <CarouselContainer role="region" aria-label="Scrolling Carousel">
       <CarouselTrack>
         {loopItems.map((item, index) => (
-          <CarouselItem key={index}>{item}</CarouselItem>
+          <CarouselItem key={index} role="listitem">
+            {item}
+          </CarouselItem>
         ))}
       </CarouselTrack>
     </CarouselContainer>

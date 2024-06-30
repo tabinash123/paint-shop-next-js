@@ -1,9 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import SupportIcon from '@mui/icons-material/Support';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import reasonsData from '../../data/reasonsData';
 
 const SectionContainer = styled.div`
@@ -30,21 +26,31 @@ const SectionHeader = styled.h4`
 `;
 
 const ReasonsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const ReasonCard = styled.div`
-  flex: 1 1 200px;
-  max-width: 220px;
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 15px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  background-color: #fff;
+  
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 

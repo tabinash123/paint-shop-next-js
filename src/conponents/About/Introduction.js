@@ -83,9 +83,7 @@ const Introduction = () => {
         <Subheadline>Your Trusted Paint Store in Kathmandu</Subheadline>
         <Mission>
           Located in the heart of Kathmandu, SNS Paint is your go-to destination for all your painting needs. Our shop is conveniently situated to serve both homeowners and contractors in the vibrant city of Kathmandu, Nepal. We pride ourselves on offering a wide range of high-quality paints, from soothing neutrals to bold, vibrant hues, ensuring you find the perfect color for any project.
-          <br/><br/>
-          At SNS Paint, we are committed to providing exceptional customer service and expert advice to help you achieve the best results. Our knowledgeable team is here to guide you through every step of your painting journey, from selecting the right products to offering tips on application techniques. Whether you are refreshing a single room or undertaking a major renovation, SNS Paint has everything you need to bring your vision to life.
-          <br/><br/>
+             <br/><br/>
           Visit us today and discover why SNS Paint is the preferred choice for quality paints and professional service in Kathmandu. Let us work together to create beautiful, inspiring spaces with colors that truly reflect your unique style.
         </Mission>
       </TextContainer>

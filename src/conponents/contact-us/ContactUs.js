@@ -36,16 +36,7 @@ const ContactUs = () => {
               <InfoItem>
                 <LocationOn sx={{ mr: 1 }} /> 1234 E-commerce St, Shopsville, USA
               </InfoItem>
-              <ShopImageContainer>
-                <Image 
-                  src={imag} 
-                  alt="Shop Image" 
-                  width={500} 
-                  height={300} 
-                  layout="responsive"
-                  priority
-                />
-              </ShopImageContainer>
+              
               <SocialMedia>
                 <IconButton href="https://www.facebook.com" target="_blank" aria-label="Facebook"><Facebook /></IconButton>
               </SocialMedia>

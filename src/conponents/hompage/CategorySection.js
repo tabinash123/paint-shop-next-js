@@ -12,14 +12,34 @@ const SectionContainer = styled.div`
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 1200px;
-  padding: 10px;
+  padding: 20px;
   margin: 0 auto;
+
+  @media (min-width: 1200px) {
+    max-width: 1200px;
+  }
+
+  @media (max-width: 1199px) and (min-width: 1024px) {
+    max-width: 1000px;
+  }
+
+  @media (max-width: 1023px) and (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media (max-width: 767px) and (min-width: 481px) {
+    max-width: 95%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0px;
+  }
 `;
 
 const Title = styled.h1`
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 2rem;
   font-weight: 600;
   color: #000;
@@ -39,27 +59,29 @@ const GridContainer = styled.div`
   padding: 20px;
   margin: 0 auto;
 
-  @media (max-width: 1200px) {
-    width: 80%;
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
+  
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1.5 fr);
+    row-gap: 15px;
+    // column-gap: 0px;
+    padding: 25px;
   }
 `;
 
 const StyledCard = styled.div`
-  width: 220px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 15px;
-  margin: 10px auto;
   cursor: pointer;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -67,6 +89,10 @@ const StyledCard = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 480px) {
+    height: 170px;
   }
 `;
 
@@ -76,23 +102,30 @@ const StyledCardMedia = styled.div`
   height: 150px;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    height: 150px;
+  }
 `;
 
 const StyledCardContent = styled.div`
   background-color: #f5f5f5;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 5px;
+  padding: 10px;
   font-size: 1rem;
   font-weight: 500;
   color: #000;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const CategorySection = () => {
   return (
     <SectionContainer>
       <Title>SHOP BY <strong>CATEGORY</strong></Title>
-
       <GridContainer>
         {demoCategories.map((category) => (
           <Link key={category.id} href="/products" passHref legacyBehavior>

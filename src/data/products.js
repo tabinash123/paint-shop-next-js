@@ -31,7 +31,7 @@ import asianpaint from '../../public/assets/asian-paints.png'
 
 const products = [
     {
-        category: "Interior Wall Paint",
+        category: "Interior",
         subcategories: [
             {
                 subcategory: "Plain Finishe",
@@ -61,7 +61,7 @@ const products = [
         ]
     },
     {
-        category: "Exterior Wall Paints",
+        category: "Exterior",
         subcategories: [
             {
                 subcategory: "Plain Finishes",
@@ -89,7 +89,7 @@ const products = [
         ]
     },
     {
-        category: "Metal & Wood Finishes",
+        category: "Metal & Wood ",
         subcategories: [
             {
                 subcategory: "Metal Enamels",

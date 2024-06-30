@@ -36,10 +36,11 @@ const FAQItem = styled.div`
   border-radius: 8px;
   box-shadow: none;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &.expanded {
     max-height: 1000px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
 
   &.collapsed {
@@ -67,11 +68,13 @@ const FAQQuestion = styled.p`
   margin: 0;
 `;
 
-const FAQAnswer = styled.p`
+const FAQAnswer = styled.div`
   font-size: 0.875rem;
   color: black;
   text-align: left;
-  margin: 16px;
+  padding: 16px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
 `;
 
 const ExpandIcon = styled.span`

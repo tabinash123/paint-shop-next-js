@@ -7,7 +7,13 @@ const Container = styled.div`
   text-align: center;
   margin: auto;
   font-family: 'Roboto', sans-serif;
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
+    padding: 30px;
+  }
+  @media (max-width: 768px) {
+    padding: 25px;
+  }
+  @media (max-width: 480px) {
     padding: 20px;
   }
 `;
@@ -20,11 +26,14 @@ const GradientHeader = styled.h4`
   font-weight: bold;
   font-size: 3rem;
   font-family: Arial, sans-serif;
-  @media (max-width: 600px) {
-    font-size: 2rem;
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
   }
-  @media (max-width: 400px) {
-    font-size: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 2.25rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 2rem;
   }
 `;
 
@@ -33,11 +42,14 @@ const SubHeader = styled.p`
   margin-bottom: 30px;
   font-size: 1.5rem;
   font-family: Arial, sans-serif;
-  @media (max-width: 600px) {
-    font-size: 1.2rem;
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
   }
-  @media (max-width: 400px) {
-    font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -47,10 +59,13 @@ const InfoText = styled.p`
   font-size: 1.1rem;
   font-family: Arial, sans-serif;
   color: #333;
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
     font-size: 1rem;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  @media (max-width: 480px) {
     font-size: 0.875rem;
   }
 `;
@@ -69,11 +84,15 @@ const StyledButton = styled.a`
   &:hover {
     background-color: #FF8D1A;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
     font-size: 1rem;
     padding: 12px 24px;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    padding: 12px 22px;
+  }
+  @media (max-width: 480px) {
     font-size: 0.875rem;
     padding: 10px 20px;
   }
@@ -91,10 +110,13 @@ const List = styled.ul`
   padding-left: 1.5rem;
   margin-bottom: 20px;
   color: #333;
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
+    padding-left: 1.25rem;
+  }
+  @media (max-width: 768px) {
     padding-left: 1rem;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 480px) {
     padding-left: 0.75rem;
   }
 `;

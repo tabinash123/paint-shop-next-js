@@ -1,10 +1,17 @@
 "use client"
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, createGlobalStyle } from 'styled-components';
 import Image from 'next/image';
 import mission from '../../../public/assets/mission.PNG';
 import story from '../../../public/assets/story.PNG';
 import PaletteIcon from '@mui/icons-material/Palette';
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+`;
 
 const fadeIn = keyframes`
   from {
@@ -20,7 +27,6 @@ const MissionSection = styled.section`
   background-color: #fff;
   animation: ${fadeIn} 1s ease-in-out;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
 `;
 
 const ContainerWrapper = styled.div`
@@ -33,10 +39,14 @@ const ContainerWrapper = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
   width: 100%;
   align-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -49,10 +59,15 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 4px;
   margin-bottom: 16px;
-  max-width: fit-content;
+  max-width: 100%;
   transition: transform 0.3s;
+
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -65,6 +80,7 @@ const GradientOverlay = styled.div`
   background: linear-gradient(45deg, rgba(255,111,97,0.6), rgba(63,81,181,0.6));
   opacity: 0;
   transition: opacity 0.3s;
+
   ${ImageWrapper}:hover & {
     opacity: 1;
   }
@@ -75,10 +91,12 @@ const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 16px;
+
   & svg {
     font-size: 2.5rem;
     color: #ff6f61;
     transition: color 0.3s;
+
     &:hover {
       color: #3f51b5;
     }
@@ -90,6 +108,7 @@ const Heading = styled.h2`
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 16px;
+
   @media (max-width: 1024px) {
     font-size: 24px;
   }
@@ -102,6 +121,7 @@ const Paragraph = styled.p`
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 16px;
+
   @media (max-width: 1024px) {
     font-size: 15px;
   }
@@ -120,28 +140,25 @@ const DividerStyled = styled.div`
 const Mission = () => {
   return (
     <MissionSection>
+      <GlobalStyle />
       <DividerStyled />
       <ContainerWrapper>
         <GridContainer>
-          <div>
+          <TextWrapper>
             <Heading>Our Mission: Bringing Color to Your Life</Heading>
-            <TextWrapper>
-              <IconWrapper>
-                <PaletteIcon />
-              </IconWrapper>
-              <Paragraph>
-                At SNS Paint, we believe that the right paint color can transform any space. Our mission is to provide you with the highest quality paints that allow you to express your personality and style. Whether you are looking for a calming neutral or a bold statement color, we have got you covered.
-              </Paragraph>
-              <Paragraph>
-                We understand that choosing the perfect color can be daunting. That is why we have created an easy-to-use online platform to help you visualize and select the perfect shades for your home. With SNS Paint, you can explore a world of color possibilities right from the comfort of your home.
-              </Paragraph>
-              <Paragraph>
-                Whether you are updating a single room or embarking on a full home makeover, we are here to help every step of the way. Let us make your home a place you will love to come back to, with colors that truly represent you.
-              </Paragraph>
-            </TextWrapper>
-          </div>
+            <IconWrapper>
+              <PaletteIcon />
+            </IconWrapper>
+            <Paragraph>
+              At SNS Paint, we believe that the right paint color can transform any space. Our mission is to provide you with the highest quality paints that allow you to express your personality and style. Whether you are looking for a calming neutral or a bold statement color, we have got you covered.
+            </Paragraph>
+            
+            <Paragraph>
+              Whether you are updating a single room or embarking on a full home makeover, we are here to help every step of the way. Let us make your home a place you will love to come back to, with colors that truly represent you.
+            </Paragraph>
+          </TextWrapper>
           <ImageWrapper>
-            <Image src={mission} alt="Our mission" layout="responsive" />
+            <Image src={mission} alt="Our mission" layout="responsive" width={500} height={300} />
             <GradientOverlay />
           </ImageWrapper>
         </GridContainer>
@@ -149,22 +166,18 @@ const Mission = () => {
       <DividerStyled />
       <ContainerWrapper>
         <GridContainer>
-          <div>
+          <TextWrapper>
             <Heading>Our Vision: Transforming Color Selection</Heading>
-            <TextWrapper>
-              <Paragraph>
-                At SNS Paint, we aim to revolutionize the way you choose colors for your home. We know that the right color can make all the difference, and our goal is to make the selection process as easy and enjoyable as possible.
-              </Paragraph>
-              <Paragraph>
-                Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they will look in your space, taking the guesswork out of the equation.
-              </Paragraph>
-              <Paragraph>
-                Whether you are a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let us work together to turn your vision into reality, with beautiful colors that inspire and delight.
-              </Paragraph>
-            </TextWrapper>
-          </div>
+            
+            <Paragraph>
+              Forget about the hassle of multiple trips to the store and the uncertainty of picking the right shade. Our innovative online tools let you experiment with different colors and see how they will look in your space, taking the guesswork out of the equation.
+            </Paragraph>
+            <Paragraph>
+              Whether you are a DIY enthusiast or a first-time painter, SNS Paint is here to help you create a home that feels uniquely yours. Let us work together to turn your vision into reality, with beautiful colors that inspire and delight.
+            </Paragraph>
+          </TextWrapper>
           <ImageWrapper>
-            <Image src={story} alt="Our story" layout="responsive" />
+            <Image src={story} alt="Our story" layout="responsive" width={500} height={300} />
             <GradientOverlay />
           </ImageWrapper>
         </GridContainer>

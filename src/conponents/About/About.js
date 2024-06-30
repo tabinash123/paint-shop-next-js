@@ -1,7 +1,7 @@
-
+"use client"
 import Introduction from './Introduction'
 import Mission from './Mission'
-import WhyUs from './WhyUs'
+import WhyUs from '../hompage/WhyToChooseUs'
 import UserReviews from './UserReview'
 
 
