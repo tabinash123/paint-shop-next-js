@@ -1,9 +1,9 @@
-// import About from '../../conponents/About/About'
+import About from '../../conponents/About/About'
 
 const page = () => {
   return (
-      <>about
-          {/* <About /> */}
+      <>
+          <About />
       </>
   )
 }
