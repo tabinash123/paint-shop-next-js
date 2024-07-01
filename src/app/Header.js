@@ -258,19 +258,19 @@ const Navbar = () => {
           </LogoContainer>
         </Link>
         <DesktopMenu>
-          <Link href="/" passHref>
+          <Link href="/" passHref style={{textDecorationLine:'none'}} >
             <NavButton active={isActive('/')}>Home</NavButton>
           </Link>
-          <Link href="/products" passHref>
+          <Link href="/products" passHref style={{textDecorationLine:'none'}} >
             <NavButton active={isActive('/products')}>Products</NavButton>
           </Link>
-          <Link href="/about" passHref>
+          <Link href="/about" passHref style={{textDecorationLine:'none'}} >
             <NavButton active={isActive('/about')}>About</NavButton>
           </Link>
-          <Link href="/blog" passHref>
+          <Link href="/blog" passHref style={{textDecorationLine:'none'}} >
             <NavButton active={isActive('/blog')}>Blog</NavButton>
           </Link>
-          <Link href="/contact" passHref>
+          <Link href="/contact" passHref style={{textDecorationLine:'none'}} >
             <NavButton active={isActive('/contact')}>Contact</NavButton>
           </Link>
         </DesktopMenu>

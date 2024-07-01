@@ -1,14 +1,14 @@
 "use client"
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaStar } from 'react-icons/fa'; // Star icon for ratings
+import { FaStar } from 'react-icons/fa';
 import Image from 'next/image';
-import reviews from '../../data/reviews'
+import reviews from '../../data/reviews';
 
 // --- Styled Components ---
 const ReviewsSection = styled.section`
   padding: 5rem 1rem;
-  background-color: #f0f0f0; /* Light grey background */
+  background-color: #f0f0f0;
 
   @media (max-width: 768px) {
     padding: 3rem 1rem;
@@ -20,7 +20,7 @@ const SectionTitle = styled.h2`
   font-family: "Playfair Display", serif;
   font-weight: 600;
   text-align: center;
-  color: #333; /* Dark grey color */
+  color: #333;
   margin-bottom: 3rem;
 
   @media (max-width: 1200px) {
@@ -48,7 +48,7 @@ const ReviewGrid = styled.div`
 
 const ReviewCard = styled.div`
   padding: 2rem;
-  background-color: #fff; /* White background for cards */
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -90,7 +90,7 @@ const ReviewerDetails = styled.div`
 const ReviewerName = styled.h3`
   font-weight: 600;
   font-size: 1.1rem;
-  color: #333; /* Dark grey color */
+  color: #333;
   margin: 0;
 
   @media (max-width: 1200px) {
@@ -108,7 +108,7 @@ const ReviewerName = styled.h3`
 `;
 
 const ReviewDate = styled.p`
-  color: #999; /* Light grey color */
+  color: #999;
   font-size: 0.9rem;
   margin: 0;
 
@@ -152,7 +152,7 @@ const StarRating = styled.div`
 `;
 
 const StarIcon = styled(FaStar)`
-  color: #ffc107; /* Gold color for stars */
+  color: #ffc107;
   margin-right: 0.25rem;
 
   @media (max-width: 1200px) {
@@ -195,24 +195,47 @@ const PaginationButton = styled.button`
   }
 `;
 
+const PaginationNumbers = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const PaginationNumber = styled.button`
+  background-color: ${({ active }) => (active ? '#333' : '#fff')};
+  color: ${({ active }) => (active ? '#fff' : '#333')};
+  border: ${({ active }) => (active ? 'none' : '1px solid #333')};
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${({ active }) => (active ? '#555' : '#f0f0f0')};
+  }
+`;
+
 // --- UserReviews Component ---
 const UserReviews = () => {
- 
-
-  // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = window.innerWidth <= 768 ? 2 : 3;
+  const reviewsPerPage = 3;
+
+  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
 
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
   const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
   const handlePrevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handlePageNumberClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
@@ -241,7 +264,18 @@ const UserReviews = () => {
         <PaginationButton onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </PaginationButton>
-        <PaginationButton onClick={handleNextPage} disabled={indexOfLastReview >= reviews.length}>
+        <PaginationNumbers>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PaginationNumber
+              key={index}
+              active={currentPage === index + 1}
+              onClick={() => handlePageNumberClick(index + 1)}
+            >
+              {index + 1}
+            </PaginationNumber>
+          ))}
+        </PaginationNumbers>
+        <PaginationButton onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </PaginationButton>
       </Pagination>

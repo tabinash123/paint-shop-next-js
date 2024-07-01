@@ -1,15 +1,9 @@
 "use client"
 import React from 'react';
-import styled, { keyframes, createGlobalStyle } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import story from '../../../public/assets/story.PNG';
 
-const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 const fadeIn = keyframes`
   from {
@@ -166,7 +160,7 @@ const DividerStyled = styled.div`
 const Vision = () => {
   return (
     <Section>
-      <GlobalStyle />
+ 
       <ContainerWrapper>
         <GridContainer>
           <ImageWrapper>
