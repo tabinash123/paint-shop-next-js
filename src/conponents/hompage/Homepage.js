@@ -3,7 +3,7 @@ import FAQ from './FAQ'
 import Costumer from './Costumer'
 import WhyChooseUsSection from './WhyToChooseUs'
 import Blog from '../Blog'
-import Intro from './Intro'
+import Intro from './heroSection/HeroSection'
 import CategorySection from './categorySection/CategorySection'
 
 const Homepage = () => {
