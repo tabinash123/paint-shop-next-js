@@ -1,7 +1,7 @@
 // components/HeroSection.js
 import React from 'react';
 import styled from 'styled-components';
-import BackgroundImage from '../../../public/assets/images.png'; // Ensure the path is correct
+import BackgroundImage from '../../../public/assets/images.PNG'; 
 
 const Section = styled.section`
   background: url(${BackgroundImage.src}) no-repeat center center;
