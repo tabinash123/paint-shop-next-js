@@ -1,8 +1,9 @@
+// components/BestSellingProducts.js
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import imag from '../../../public/assets/asian-paints.png';
 import bestsellingproducts from '../../data/bestsellingproducts';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const colors = {
   primary: '#900C3F',
@@ -115,11 +116,11 @@ const ProductGrid = styled.div`
   }
 
   @media (min-width: 961px) and (max-width: 1280px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (min-width: 1281px) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 
@@ -128,6 +129,14 @@ const ProductCard = styled.div`
   max-width: 200px;
   margin: 0 auto;
   background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   @media (max-width: 600px) {
     max-width: 150px;
@@ -147,6 +156,7 @@ const ProductTitle = styled.h6`
   margin-top: 10px;
   font-size: 0.9rem;
   font-family: 'Montserrat', sans-serif;
+  color: black;
 
   @media (max-width: 400px) {
     font-size: 0.7rem;
@@ -169,6 +179,41 @@ const ProductTitle = styled.h6`
   }
 `;
 
+const WhatsAppWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  color: ${colors.primary};
+
+  & > span {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    color: ${colors.textPrimary};
+
+    @media (max-width: 400px) {
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+
+    @media (min-width: 601px) and (max-width: 960px) {
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 961px) and (max-width: 1280px) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 1281px) {
+      font-size: 1.4rem;
+    }
+  }
+`;
+
 const StyledButton = styled.a`
   display: inline-block;
   margin-top: 40px;
@@ -180,10 +225,11 @@ const StyledButton = styled.a`
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
     background-color: ${colors.secondary};
-    color: ${colors.primary};
+    color: #333;
   }
 
   @media (max-width: 600px) {
@@ -204,10 +250,9 @@ const StyledButton = styled.a`
 `;
 
 const ProductImage = styled(Image)`
-  @media (min-width: 800px) {
-    width: 180px;
-    height: 210px;
-  }
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 `;
 
 const BestSellingProducts = () => {
@@ -225,12 +270,16 @@ const BestSellingProducts = () => {
         {bestsellingproducts.map((product, index) => (
           <ProductCard key={index}>
             <ProductImage
-              src={imag}
+              src={product.image}
               alt={product.title}
               width={130}
               height={160}
             />
             <ProductTitle>{product.title}</ProductTitle>
+            <WhatsAppWrapper>
+              <WhatsAppIcon />
+              <span>9742555743</span>
+            </WhatsAppWrapper>
           </ProductCard>
         ))}
       </ProductGrid>

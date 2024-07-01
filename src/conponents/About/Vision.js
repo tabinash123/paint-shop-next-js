@@ -2,8 +2,7 @@
 import React from 'react';
 import styled, { keyframes, createGlobalStyle } from 'styled-components';
 import Image from 'next/image';
-import mission from '../../../public/assets/mission.PNG';
-import PaletteIcon from '@mui/icons-material/Palette';
+import story from '../../../public/assets/story.PNG';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
@@ -22,7 +21,6 @@ const fadeIn = keyframes`
 `;
 
 const Section = styled.section`
-  padding: 64px 0;
   background-color: #fff;
   animation: ${fadeIn} 1s ease-in-out;
   text-align: center;
@@ -34,7 +32,6 @@ const Section = styled.section`
 
 const ContainerWrapper = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,6 +49,7 @@ const GridContainer = styled.div`
   align-items: center;
 
   @media (min-width: 481px) and (max-width: 768px) {
+    // grid-template-columns: 1fr 1fr;
     display: flex;
     flex-direction: column;
   }
@@ -65,26 +63,37 @@ const GridContainer = styled.div`
   }
 `;
 
+const ImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  max-width: 100%;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const GradientOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,111,97,0.6), rgba(63,81,181,0.6));
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  ${ImageWrapper}:hover & {
+    opacity: 1;
+  }
+`;
+
 const TextWrapper = styled.div`
   padding: 0 16px;
   text-align: left;
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 16px;
-
-  & svg {
-    font-size: 3rem;
-    color: #ff6f61;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #3f51b5;
-    }
-  }
 `;
 
 const Heading = styled.h2`
@@ -143,34 +152,6 @@ const ListItem = styled.li`
   }
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  max-width: 100%;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const GradientOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, rgba(255,111,97,0.6), rgba(63,81,181,0.6));
-  opacity: 0;
-  transition: opacity 0.3s;
-
-  ${ImageWrapper}:hover & {
-    opacity: 1;
-  }
-`;
-
 const DividerStyled = styled.div`
   width: 80%;
   height: 1px;
@@ -182,29 +163,25 @@ const DividerStyled = styled.div`
   }
 `;
 
-const Mission = () => {
+const Vision = () => {
   return (
     <Section>
       <GlobalStyle />
-      <DividerStyled />
       <ContainerWrapper>
         <GridContainer>
-          <TextWrapper>
-            <Heading>Our Mission: Bringing Color to Your Life in Nepal</Heading>
-            <IconWrapper>
-              <PaletteIcon />
-            </IconWrapper>
-            <List>
-              <ListItem>Provide top-quality Asian Paints for homes and businesses across Nepal.</ListItem>
-              <ListItem>Offer a wide range of colors to match the unique tastes and preferences of the Nepali people.</ListItem>
-              <ListItem>Support local contractors and DIY enthusiasts with expert advice and exceptional service.</ListItem>
-              <ListItem>Enhance the beauty of Nepali homes with vibrant, long-lasting paint solutions.</ListItem>
-            </List>
-          </TextWrapper>
           <ImageWrapper>
-            <Image src={mission} alt="Our mission: Bringing Color to Your Life in Nepal" layout="responsive" width={500} height={300} />
+            <Image src={story} alt="Our vision: Transforming Color Selection in Nepal" layout="responsive" width={500} height={300} />
             <GradientOverlay />
           </ImageWrapper>
+          <TextWrapper>
+            <Heading>Our Vision: Transforming Color Selection in Nepal</Heading>
+            <List>
+              <ListItem>Provide innovative online tools for effortless color selection in Nepal.</ListItem>
+              <ListItem>Help you visualize different shades in your space before making a decision.</ListItem>
+              <ListItem>Make the process of picking the right paint color easy and enjoyable for all Nepali homeowners.</ListItem>
+              <ListItem>Inspire creativity and confidence in every painting project with our support.</ListItem>
+            </List>
+          </TextWrapper>
         </GridContainer>
       </ContainerWrapper>
       <DividerStyled />
@@ -212,4 +189,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default Vision;

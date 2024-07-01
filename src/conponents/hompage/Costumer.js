@@ -1,65 +1,81 @@
+// components/Marquee.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const slide = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+const scroll = keyframes`
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 `;
 
-const CarouselContainer = styled.div`
+const MarqueeContainer = styled.div`
   overflow: hidden;
   width: 100%;
-  position: relative;
-  display: flex;
-`;
-
-const CarouselTrack = styled.div`
-  display: flex;
-  width: calc(200%); /* Double the width for infinite loop effect */
-  animation: ${slide} 15s linear infinite;
-`;
-
-const CarouselItem = styled.div`
-  flex: 0 0 25%;
+  white-space: nowrap;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  padding: 20px;
-  background-color: #f5f5f5;
-  flex-shrink: 0;
+  padding: 5px 0; /* Reduced padding for a thinner strip */
+  
+  position: relative;
+  background:linear-gradient(90deg, #391B49, #5F2477, #BA3966, #F06C45, #F13E2C) ;
 
-  @media (max-width: 1200px) {
-    flex: 0 0 33.33%;
-  }
-
-  @media (max-width: 768px) {
-    flex: 0 0 50%;
-  }
-
-  @media (max-width: 480px) {
-    flex: 0 0 100%;
+  &:hover .marquee-content {
+    animation-play-state: paused;
   }
 `;
 
-const Carousel = () => {
-  const items = ['Fast Painting', 'Coloring', 'Wall Paint', 'Pencil Line'];
+const MarqueeContent = styled.div`
+  display: inline-block;
+  padding-left: 100%;
+  animation: ${scroll} ${(props) => props.speed || 20}s linear infinite;
+  font-size: 1rem; /* Reduced font size for a thinner strip */
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    left: 100%;205}s linear infinite;
+  }
+
+  &:after {
+    left: 200%;
+  }
+`;
+
+const CarouselItem = styled.span`
+  display: inline-block;
+  margin-right: 30px; /* Reduced margin for closer items */
+  padding: 5px 15px; /* Reduced padding for a thinner strip */
+  border-radius: 5px;
+  background: ${(props) => props.bgColor};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff; /* Ensure text color is white for better readability */
+`;
+
+const Marquee = ({ speed }) => {
+  const items = [
+    { text: 'Fast Painting Service', bgColor: 'linear-gradient(90deg, #FF5733, #FFBD33)' },
+    { text: 'High-Quality Colors', bgColor: 'linear-gradient(90deg, #8E44AD, #3498DB)' },
+    { text: 'Affordable Prices', bgColor: 'linear-gradient(90deg, #1ABC9C, #16A085)' },
+    { text: 'Professional Consultation', bgColor: 'linear-gradient(90deg, #F39C12, #D35400)' },
+    { text: 'Customer Satisfaction Guaranteed', bgColor: 'linear-gradient(90deg, #2ECC71, #27AE60)' }
+  ];
 
   // Duplicate items array to create a seamless loop effect
   const loopItems = [...items, ...items];
 
   return (
-    <CarouselContainer role="region" aria-label="Scrolling Carousel">
-      <CarouselTrack>
+    <MarqueeContainer role="region" aria-label="Scrolling Marquee">
+      <MarqueeContent className="marquee-content" speed={speed}>
         {loopItems.map((item, index) => (
-          <CarouselItem key={index} role="listitem">
-            {item}
+          <CarouselItem key={index} bgColor={item.bgColor} role="listitem">
+            {item.text}
           </CarouselItem>
         ))}
-      </CarouselTrack>
-    </CarouselContainer>
+      </MarqueeContent>
+    </MarqueeContainer>
   );
 };
 
-export default Carousel;
+export default Marquee;

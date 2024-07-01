@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import {
@@ -9,6 +9,7 @@ import {
   CircularProgress
 } from '@mui/material';
 import Image from 'next/image';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import products from '../../data/products';
 
 // Global styles with the new color scheme and typography
@@ -106,7 +107,7 @@ const SubcategoryHeader = styled.h5`
   text-align: left;
   margin-top: 40px;
   font-size: 1.8rem;
-    background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
+  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @media (max-width: 600px) {
@@ -135,15 +136,18 @@ const ProductGrid = styled.div`
 
 const ProductCard = styled.div`
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
   margin: 0 auto;
   background: #fff;
- 
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
   @media (max-width: 600px) {
     max-width: 150px;
   }
   @media (max-width: 400px) {
-    max-width: 120px;
+    max-width: 2000px;
   }
 `;
 
@@ -181,6 +185,20 @@ const ProductTitle = styled.h6`
   }
   @media (min-width: 961px) and (max-width: 1280px) {
     font-size: 1.1rem;
+  }
+`;
+
+const WhatsAppContact = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  color: orange;
+  a {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 5px;
   }
 `;
 
@@ -228,6 +246,18 @@ const ErrorMessage = styled.div`
   text-align: center;
   margin-top: 20px;
   font-size: 1.2rem;
+`;
+
+const CustomCircularProgress = styled(CircularProgress)`
+  && {
+    color: #00953b;
+  }
+`;
+const DividerStyled = styled.div`
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
 `;
 
 const ProductDisplay = () => {
@@ -282,10 +312,11 @@ const ProductDisplay = () => {
         </Select>
       </StyledFormControl>
       {loading ? (
-        <LoadingContainer><CircularProgress /></LoadingContainer>
+        <LoadingContainer><CustomCircularProgress size={50} thickness={4.5} /></LoadingContainer>
       ) : (
         filteredProducts().map((subcategory, index) => (
           <div key={index}>
+            <DividerStyled />
             <SubcategoryHeader>{subcategory.subcategoryName}</SubcategoryHeader>
             <ProductGrid>
               {subcategory.products.map((product, productIndex) => (
@@ -297,6 +328,12 @@ const ProductDisplay = () => {
                     height={300}
                   />
                   <ProductTitle>{product.name}</ProductTitle>
+                  <WhatsAppContact>
+                    <WhatsAppIcon />
+                    <a href="https://wa.me/9742555743" target="_blank" rel="noopener noreferrer">
+                      9742555743
+                    </a>
+                  </WhatsAppContact>
                 </ProductCard>
               ))}
             </ProductGrid>

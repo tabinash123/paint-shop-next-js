@@ -3,7 +3,15 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Home as HomeIcon, Info as InfoIcon, Store as StoreIcon, ContactMail as ContactMailIcon, Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import {
+  Home as HomeIcon,
+  Info as InfoIcon,
+  Store as StoreIcon,
+  ContactMail as ContactMailIcon,
+  Menu as MenuIcon,
+  Close as CloseIcon,
+  ChevronRight as ChevronRightIcon,
+} from '@mui/icons-material';
 
 // Styled Components
 const GradientAppBar = styled.div`
@@ -12,19 +20,17 @@ const GradientAppBar = styled.div`
   align-items: center;
   background: linear-gradient(90deg, #1954a8, #5F2477, #BA3966, #d02C45, #d67824);
   padding: 10px 20px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  @media (max-width: 480px) { /* Mobile */
+  @media (max-width: 480px) {
     padding: 10px 15px;
   }
-  @media (min-width: 481px) and (max-width: 768px) { /* Tablet */
+  @media (min-width: 481px) and (max-width: 768px) {
     padding: 10px 25px;
   }
-  @media (min-width: 769px) and (max-width: 1024px) { /* Laptop */
+  @media (min-width: 769px) and (max-width: 1024px) {
     padding: 10px 35px;
   }
 `;
@@ -32,32 +38,20 @@ const GradientAppBar = styled.div`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  text-decoration: none;
   cursor: pointer;
 
-  @media (max-width: 480px) { /* Mobile */
-    img {
-      width: 150px;
-      height: auto;
-    }
-  }
-  @media (min-width: 481px) and (max-width: 768px) { /* Tablet */
-    img {
-      width: 150px;
-      height: auto;
-    }
-  }
-  @media (min-width: 769px) and (max-width: 1024px) { /* Laptop */
-    img {
+  img {
+    width: 150px;
+    height: auto;
+    @media (min-width: 769px) and (max-width: 1024px) {
       width: 170px;
-      height: auto;
     }
   }
 `;
 
 const DesktopMenu = styled.div`
   display: none;
-  @media (min-width: 1025px) { /* Desktop */
+  @media (min-width: 1025px) {
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -65,22 +59,24 @@ const DesktopMenu = styled.div`
 `;
 
 const MobileMenu = styled.div`
-  @media (min-width: 1025px) { /* Desktop */
+  @media (min-width: 1025px) {
     display: none;
   }
 `;
 
 const NavButton = styled.div`
-  color: ${props => (props.active ? '#FFD700' : '#fff')};
+  color: ${({ active }) => (active ? '#FFD700' : '#fff')};
   text-decoration: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: color 0.3s, transform 0.3s;
   position: relative;
+
   &:hover {
     color: #FFD700;
     transform: translateY(-2px);
   }
+
   &::after {
     content: '';
     position: absolute;
@@ -92,6 +88,7 @@ const NavButton = styled.div`
     background: #FFD700;
     transition: width 0.3s ease, background-color 0.3s ease;
   }
+
   &:hover::after {
     width: 100%;
     left: 0;
@@ -116,18 +113,18 @@ const DrawerContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 200px;
+  width: 300px;
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: #fff;
   color: #333;
   z-index: 1100;
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: ${({ transitionEnabled }) => (transitionEnabled ? 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out' : 'none')};
   box-shadow: ${({ isOpen }) => (isOpen ? '-2px 0 10px rgba(0, 0, 0, 0.3)' : 'none')};
-  // padding: 20px;
+  padding: 20px;
   font-family: 'Poppins', sans-serif;
 
-  @media (min-width: 1025px) { /* Desktop */
+  @media (min-width: 1025px) {
     display: none;
   }
 `;
@@ -145,18 +142,20 @@ const DrawerMenu = styled.div`
 `;
 
 const DrawerNavButton = styled.div`
-  color: black;
+  color: #0056b3;
   text-decoration: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  transition: color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+
   &:hover {
-    // color: white;
-  }
-  &:hover{
-  background: linear-gradient(45deg, rgba(255, 87, 51, 0.3), rgba(255, 87, 51, 0.3) 75%, rgba(255, 165, 0, 0.3) 75%, rgba(255, 165, 0, 0.3))
+    background-color: #f0f0f0;
+    color: #003580;
   }
 `;
 
@@ -166,10 +165,10 @@ const IconContainer = styled.div`
   margin-right: 10px;
 `;
 
-const IconButton = styled.button.attrs({
+const IconButton = styled.button.attrs(({ isOpen }) => ({
   'aria-label': 'Menu',
-  'aria-expanded': props => props.isOpen,
-})`
+  'aria-expanded': isOpen,
+}))`
   background: none;
   border: none;
   cursor: pointer;
@@ -177,26 +176,31 @@ const IconButton = styled.button.attrs({
   align-items: center;
   justify-content: center;
   padding: 10px;
+
   &:hover {
     opacity: 0.8;
   }
 `;
 
-// NavItem Component
 const NavItem = ({ href, active, onClick, children, icon: Icon }) => (
-  <Link href={href} passHref>
-    <DrawerNavButton active={active} onClick={onClick}>
-      {Icon && <IconContainer><Icon /></IconContainer>}
+  <Link href={href} passHref style={{textDecoration:'none'}} >
+    <DrawerNavButton onClick={onClick}>
+      {Icon && (
+        <IconContainer>
+          <Icon />
+        </IconContainer>
+      )}
       {children}
+      <ChevronRightIcon />
     </DrawerNavButton>
   </Link>
 );
 
-// Navbar Component
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [transitionEnabled, setTransitionEnabled] = useState(false);
   const router = useRouter();
-  const drawerRef = useRef();
+  const drawerRef = useRef(null);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -229,14 +233,19 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    setTransitionEnabled(true);
+  }, []);
+
   const isActive = (pathname) => router.pathname === pathname;
 
-  const imageSrc = 'https://dt-paintpros.myshopify.com/cdn/shop/files/logo_a162f414-bff7-4279-b3f9-f69a785e16df.png';
+  const imageSrc =
+    'https://dt-paintpros.myshopify.com/cdn/shop/files/logo_a162f414-bff7-4279-b3f9-f69a785e16df.png';
 
   return (
     <>
       <GradientAppBar>
-        <Link href="/" passHref style={{textDecorationLine:"none"}}>
+        <Link href="/" passHref>
           <LogoContainer>
             <Image
               src={imageSrc}
@@ -249,31 +258,51 @@ const Navbar = () => {
           </LogoContainer>
         </Link>
         <DesktopMenu>
-          <Link href="/" passHref style={{textDecorationLine:"none"}}><NavButton active={isActive("/")}>Home</NavButton></Link>
-          <Link href="/products" passHref style={{textDecorationLine:"none"}}><NavButton active={isActive("/products")}>Products</NavButton></Link>
-          <Link href="/about" passHref style={{textDecorationLine:"none"}}><NavButton active={isActive("/about")}>About</NavButton></Link>
-          <Link href="/blog" passHref style={{textDecorationLine:"none"}}><NavButton active={isActive("/blog")}>Blog</NavButton></Link>
-          <Link href="/contact" passHref style={{textDecorationLine:"none"}}><NavButton active={isActive("/contact")}>Contact</NavButton></Link>
+          <Link href="/" passHref>
+            <NavButton active={isActive('/')}>Home</NavButton>
+          </Link>
+          <Link href="/products" passHref>
+            <NavButton active={isActive('/products')}>Products</NavButton>
+          </Link>
+          <Link href="/about" passHref>
+            <NavButton active={isActive('/about')}>About</NavButton>
+          </Link>
+          <Link href="/blog" passHref>
+            <NavButton active={isActive('/blog')}>Blog</NavButton>
+          </Link>
+          <Link href="/contact" passHref>
+            <NavButton active={isActive('/contact')}>Contact</NavButton>
+          </Link>
         </DesktopMenu>
         <MobileMenu>
-          <IconButton onClick={toggleDrawer}>
+          <IconButton onClick={toggleDrawer} isOpen={isOpen}>
             <MenuIcon style={{ color: '#fff' }} />
           </IconButton>
         </MobileMenu>
       </GradientAppBar>
       <DrawerOverlay isOpen={isOpen} onClick={toggleDrawer} />
-      <DrawerContainer ref={drawerRef} isOpen={isOpen} tabIndex={-1}>
+      <DrawerContainer ref={drawerRef} isOpen={isOpen} transitionEnabled={transitionEnabled}>
         <DrawerHeader>
-          <IconButton onClick={toggleDrawer} aria-label="Close Menu">
-            <CloseIcon style={{ color: '#fff' }} />
+          <IconButton onClick={toggleDrawer} aria-label="Close Menu" isOpen={isOpen}>
+            <CloseIcon />
           </IconButton>
         </DrawerHeader>
-        <DrawerMenu>
-          <NavItem href="/"    active={isActive("/")} onClick={toggleDrawer} icon={HomeIcon} >Home</NavItem>
-          <NavItem href="/products"    active={isActive("/products")} onClick={toggleDrawer} icon={StoreIcon}>Products</NavItem>
-          <NavItem href="/about"    active={isActive("/about")} onClick={toggleDrawer} icon={InfoIcon}>About</NavItem>
-          <NavItem href="/contact"    active={isActive("/contact")} onClick={toggleDrawer} icon={ContactMailIcon}>Contact</NavItem>
-          <NavItem href="/blog"    active={isActive("/blog")} onClick={toggleDrawer} icon={HomeIcon}>Blog</NavItem>
+        <DrawerMenu  >
+          <NavItem href="/"  active={isActive('/')} onClick={toggleDrawer} icon={HomeIcon}>
+            Home
+          </NavItem>
+          <NavItem href="/products" active={isActive('/products')} onClick={toggleDrawer} icon={StoreIcon}>
+            Products
+          </NavItem>
+          <NavItem href="/about" active={isActive('/about')} onClick={toggleDrawer} icon={InfoIcon}>
+            About
+          </NavItem>
+          <NavItem href="/contact" active={isActive('/contact')} onClick={toggleDrawer} icon={ContactMailIcon}>
+            Contact
+          </NavItem>
+          <NavItem href="/blog" active={isActive('/blog')} onClick={toggleDrawer} icon={HomeIcon}>
+            Blog
+          </NavItem>
         </DrawerMenu>
       </DrawerContainer>
     </>

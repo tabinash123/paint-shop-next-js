@@ -3,6 +3,7 @@ import Introduction from './Introduction'
 import Mission from './Mission'
 import WhyUs from '../hompage/WhyToChooseUs'
 import UserReviews from './UserReview'
+import Vision from './Vision';
 
 
 
@@ -11,6 +12,7 @@ const About = () => {
     <div>
       <Introduction />
       <Mission />
+      <Vision />  
       <WhyUs />
       <UserReviews/>
     </div>

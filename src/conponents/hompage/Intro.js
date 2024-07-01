@@ -1,150 +1,91 @@
+// components/HeroSection.js
 import React from 'react';
 import styled from 'styled-components';
+import BackgroundImage from '../../../public/assets/images.png'; // Ensure the path is correct
+
+const Section = styled.section`
+  background: url(${BackgroundImage.src}) no-repeat center center;
+  background-size: cover;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+`;
 
 const Container = styled.div`
-  padding: 40px;
-  background-color: #fff;
-  text-align: center;
-  margin: auto;
-  font-family: 'Roboto', sans-serif;
-  @media (max-width: 1024px) {
-    padding: 30px;
-  }
-  @media (max-width: 768px) {
-    padding: 25px;
-  }
-  @media (max-width: 480px) {
-    padding: 20px;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 `;
 
-const GradientHeader = styled.h4`
-  background: linear-gradient(90deg, #FF5733, #FF8D1A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+const Headline = styled.h1`
+  color: #FFFFFF;
   margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 3rem;
-  font-family: Arial, sans-serif;
-  @media (max-width: 1024px) {
-    font-size: 2.5rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 2.25rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 2rem;
-  }
+  font-size: 48px;
+  font-weight: 700;
 `;
 
-const SubHeader = styled.p`
-  color: #C70039;
-  margin-bottom: 30px;
-  font-size: 1.5rem;
-  font-family: Arial, sans-serif;
-  @media (max-width: 1024px) {
-    font-size: 1.4rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-`;
-
-const InfoText = styled.p`
+const Subheadline = styled.h2`
+  color: #F0E68C; /* Light Yellow */
   margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+`;
+
+const Paragraph = styled.p`
+  font-size: 18px;
   line-height: 1.8;
-  font-size: 1.1rem;
-  font-family: Arial, sans-serif;
-  color: #333;
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
-  @media (max-width: 768px) {
-    font-size: 0.95rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 0.875rem;
-  }
+  margin-bottom: 40px;
+  color: #F8F8FF; /* Ghost White */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
-const StyledButton = styled.a`
+const CallToAction = styled.a`
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 28px;
-  background-color: #FF5733;
+  padding: 15px 30px;
+  background-color: #1E90FF; /* Dodger Blue */
   color: #fff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 8px;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
   &:hover {
-    background-color: #FF8D1A;
-  }
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-    padding: 12px 24px;
-  }
-  @media (max-width: 768px) {
-    font-size: 0.95rem;
-    padding: 12px 22px;
-  }
-  @media (max-width: 480px) {
-    font-size: 0.875rem;
-    padding: 10px 20px;
+    background-color: #1C1C1C;
+    color: #FFD700; /* Gold */
   }
 `;
 
-const DividerStyled = styled.hr`
-  margin: 30px 0;
-  border: none;
-  height: 1px;
-  background-color: #ccc;
-`;
-
-const List = styled.ul`
-  text-align: left;
-  padding-left: 1.5rem;
-  margin-bottom: 20px;
-  color: #333;
-  @media (max-width: 1024px) {
-    padding-left: 1.25rem;
-  }
-  @media (max-width: 768px) {
-    padding-left: 1rem;
-  }
-  @media (max-width: 480px) {
-    padding-left: 0.75rem;
-  }
-`;
-
-const Intro = () => {
+const HeroSection = () => {
   return (
-    <Container>
-      <GradientHeader>Welcome to SnS Paint</GradientHeader>
-      <SubHeader>Your Premier Paint Shop in Kathmandu, Nepal</SubHeader>
-      <DividerStyled />
-      <InfoText>
-        Discover SnS Paint, the ultimate destination for premium house painting colors in Kathmandu. Our extensive range of vibrant, eco-friendly paints is perfect for any home makeover. Whether you’re looking to add a pop of color to your living room or refresh your entire home, we have the perfect shades to suit your style.
-      </InfoText>
-      <InfoText>
-        At SnS Paint, we pride ourselves on offering:
-      </InfoText>
-      <List>
-        <li>High-quality, eco-friendly paints</li>
-        <li>Expert color consultation</li>
-        <li>Durable and easy-to-apply products</li>
-        <li>Stain-resistant and easy-to-clean finishes</li>
-      </List>
-      <InfoText>
-        Ready to transform your home? Visit us today and start creating your dream space with SnS Paint!
-      </InfoText>
-      <StyledButton href="/products">Explore Our Collection</StyledButton>
-    </Container>
+    <Section>
+      <Container>
+        <Headline>Welcome to Saurav and Shuvam Paint!</Headline>
+        <Subheadline>Your Trusted Paint Partner in Kathmandu, Nepal</Subheadline>
+        <Paragraph>
+          At Saurav and Shuvam Paint, we are proud to be your authorized dealer of Asian Paints, bringing vibrant and high-quality paint solutions to Kathmandu and beyond. Whether you are renovating your home, designing a new space, or undertaking a professional project, we offer a diverse range of colors and finishes to meet your needs.
+        </Paragraph>
+        <CallToAction href="/products">Explore Our Products</CallToAction>
+      </Container>
+    </Section>
   );
 };
 
-export default Intro;
+export default HeroSection;

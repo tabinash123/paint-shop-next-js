@@ -5,11 +5,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Image from 'next/image';
-import cardsData from '../../data/cardData';
+import cardsData from '../data/cardData';
 
 const MainContainer = styled.div`
   padding: 20px;

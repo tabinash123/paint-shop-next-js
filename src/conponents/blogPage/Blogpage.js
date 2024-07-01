@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React from 'react';
 import styled from 'styled-components';
 
@@ -20,7 +20,9 @@ const BlogTitle = styled.h1`
   text-align: center;
   margin-bottom: 40px;
   font-size: 28px;
-  color: #333;
+  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   @media (max-width: 1200px) {
     font-size: 26px;
@@ -47,9 +49,11 @@ const Section = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  color: #00953b; /* Your theme color */
   font-size: 24px;
-  border-bottom: 2px solid #00953b;
+  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid #FF5733;
   padding-bottom: 10px;
   margin-bottom: 20px;
 
@@ -124,21 +128,27 @@ const Divider = styled.div`
 const Blog = () => {
   return (
     <BlogContainer>
-      <BlogTitle>House Painting Tips and Information</BlogTitle>
+      <BlogTitle>Expert Tips for Perfect House Painting in Nepal</BlogTitle>
       
       <Section>
-        <SectionTitle>Choosing the Right Paint</SectionTitle>
+        <SectionTitle>Understanding Different Types of Paints</SectionTitle>
         <List>
           <ListItem>
-            <ListItemTitle>Overview</ListItemTitle>
+            <ListItemTitle>Interior Paints</ListItemTitle>
             <ListItemContent>
-              The right paint can make a big difference in the look and durability of your home. When choosing paint, consider each room needs and the surface you are painting. High-traffic areas like kitchens and bathrooms need more durable, washable paints.
+              For indoor spaces in Nepali homes, interior paints are essential. They are designed to be durable and easy to clean, perfect for high-traffic areas like living rooms and kitchens. Available in matte, satin, and gloss finishes, interior paints cater to different aesthetic preferences.
             </ListItemContent>
           </ListItem>
           <ListItem>
-            <ListItemTitle>Types of Paint</ListItemTitle>
+            <ListItemTitle>Exterior Paints</ListItemTitle>
             <ListItemContent>
-              There are different types of paint like latex, oil-based, and acrylic. Latex paint is popular for its durability and easy cleanup. Oil-based paint is great for trim and doors due to its smooth finish. Acrylic paint is flexible and resists chipping and cracking, making it ideal for exteriors.
+              Nepal's diverse climate demands robust exterior paints. These paints are formulated to withstand weather conditions, resisting fading, cracking, and mildew. They are available in finishes like flat, semi-gloss, and gloss to protect and beautify your home's exterior.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Damp-Proof Paints</ListItemTitle>
+            <ListItemContent>
+              In regions with high humidity or frequent rainfall, damp-proof paints are a must. They prevent moisture from penetrating walls, making them ideal for basements and bathrooms. These paints help maintain a dry and healthy environment by preventing mold and mildew.
             </ListItemContent>
           </ListItem>
         </List>
@@ -147,18 +157,42 @@ const Blog = () => {
       <Divider />
 
       <Section>
-        <SectionTitle>Preparation Tips</SectionTitle>
+        <SectionTitle>Step-by-Step Painting Process</SectionTitle>
         <List>
           <ListItem>
-            <ListItemTitle>Cleaning Surfaces</ListItemTitle>
+            <ListItemTitle>Step 1: Preparing the Surface</ListItemTitle>
             <ListItemContent>
-              Proper preparation is key to a successful paint job. Clean walls to remove dust and grease, which can prevent paint from sticking properly. Use a mild detergent and water, then rinse with clean water. Let surfaces dry completely before painting.
+              Clean your walls thoroughly to remove any dust, dirt, or grease. Use a mild detergent and water, then rinse and let dry. Sand down any rough spots and fill holes or cracks with filler. Priming is crucial for ensuring better paint adhesion and a smooth finish.
             </ListItemContent>
           </ListItem>
           <ListItem>
-            <ListItemTitle>Repairing Damage</ListItemTitle>
+            <ListItemTitle>Step 2: Gathering Your Materials</ListItemTitle>
             <ListItemContent>
-              Before painting, fill any holes or cracks with a suitable filler. Sand down rough areas for a smooth surface. Remove any loose or peeling paint with a scraper. Priming repaired areas helps the paint stick better and provides a uniform finish.
+              Assemble all necessary materials before starting. This includes paint, brushes, rollers, painter's tape, drop cloths, and a ladder. Having everything ready will streamline the painting process.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 3: Protecting Your Space</ListItemTitle>
+            <ListItemContent>
+              Cover floors and furniture with drop cloths to protect them from paint splatters. Use painter's tape to mask off areas you don't want painted, such as trim, windows, and doors.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 4: Cutting In</ListItemTitle>
+            <ListItemContent>
+              "Cutting in" involves painting the edges of your walls with a brush. This means painting along the ceiling, corners, and trim where a roller can't reach. This creates a clean border for the rest of your painting.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 5: Rolling the Paint</ListItemTitle>
+            <ListItemContent>
+              Use a roller to apply paint to the main wall surfaces. Roll in a "W" or "M" pattern for even coverage. It's better to apply several thin coats rather than one thick one to avoid drips and ensure a smooth finish.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 6: Final Touches</ListItemTitle>
+            <ListItemContent>
+              Once the paint is dry, carefully remove the painter's tape. Touch up any areas where paint has seeped through or coverage is uneven. Clean your brushes and rollers for future use.
             </ListItemContent>
           </ListItem>
         </List>
@@ -167,18 +201,36 @@ const Blog = () => {
       <Divider />
 
       <Section>
-        <SectionTitle>Color Selection</SectionTitle>
+        <SectionTitle>Step-by-Step Color Selection</SectionTitle>
         <List>
           <ListItem>
-            <ListItemTitle>Choosing Colors</ListItemTitle>
+            <ListItemTitle>Step 1: Assess the Room</ListItemTitle>
             <ListItemContent>
-              Color can transform a space. Think about the atmosphere you want in each room. Soft, cool colors like blue and green create a calming effect, while warm colors like red and yellow make a space feel cozy and inviting. Experiment with bold accent walls for a pop of color and interest.
+              Think about the room's size, lighting, and existing decor. Light colors can make a small room feel larger, while darker shades add a cozy vibe. Natural light affects how colors look, so observe the room at different times of the day.
             </ListItemContent>
           </ListItem>
           <ListItem>
-            <ListItemTitle>Testing Colors</ListItemTitle>
+            <ListItemTitle>Step 2: Choose a Color Scheme</ListItemTitle>
             <ListItemContent>
-              Always test paint samples on your walls. Paint small sections in different areas of the room to see how the color looks in various lighting conditions. Natural light changes the appearance of paint colors throughout the day. Observe the samples at different times to ensure you are happy with the final look.
+              Pick a color scheme that suits the room's function and your personal style. You can go for a monochromatic scheme (different shades of one color), analogous colors (colors next to each other on the color wheel), or complementary colors (opposite each other on the color wheel).
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 3: Test Samples</ListItemTitle>
+            <ListItemContent>
+              Always test paint samples on your walls. Paint small sections in various parts of the room to see how they look in different lighting. This helps you choose a color you'll be happy with in all conditions.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 4: Consider the Finish</ListItemTitle>
+            <ListItemContent>
+              The finish you choose can impact the room's look and feel. Matte finishes hide imperfections, while satin and semi-gloss finishes are more durable and easier to clean, perfect for high-traffic areas.
+            </ListItemContent>
+          </ListItem>
+          <ListItem>
+            <ListItemTitle>Step 5: Make Your Decision</ListItemTitle>
+            <ListItemContent>
+              Once you've tested your samples and considered the finish, make your final choice. Keep the room's purpose, lighting, and decor in mind to ensure a cohesive look.
             </ListItemContent>
           </ListItem>
         </List>
@@ -187,18 +239,18 @@ const Blog = () => {
       <Divider />
 
       <Section>
-        <SectionTitle>Eco-Friendly Paint Options</SectionTitle>
+        <SectionTitle>Eco-Friendly Painting Solutions</SectionTitle>
         <List>
           <ListItem>
-            <ListItemTitle>Low-VOC and Zero-VOC Paints</ListItemTitle>
+            <ListItemTitle>Benefits of Low-VOC Paints</ListItemTitle>
             <ListItemContent>
-              Eco-friendly paints are a healthier choice for your home and the environment. Low-VOC (Volatile Organic Compounds) and zero-VOC paints emit fewer harmful chemicals, reducing indoor air pollution. These paints are ideal for families with children or individuals with allergies or respiratory issues.
+              Low-VOC (Volatile Organic Compounds) and zero-VOC paints are better for your health and the environment. They emit fewer harmful chemicals, making them a safer choice for indoor air quality, especially in homes with kids or pets.
             </ListItemContent>
           </ListItem>
           <ListItem>
-            <ListItemTitle>Benefits of Eco-Friendly Paints</ListItemTitle>
+            <ListItemTitle>Choosing Sustainable Brands</ListItemTitle>
             <ListItemContent>
-              These paints not only improve indoor air quality but also have minimal odor and are safer for individuals with allergies or chemical sensitivities. Additionally, eco-friendly paints can contribute to a healthier planet by reducing the overall carbon footprint of your home improvement projects.
+              Look for paint brands that prioritize sustainability. These companies often use eco-friendly materials and practices, reducing their environmental impact. Choosing sustainable brands helps support a healthier planet.
             </ListItemContent>
           </ListItem>
         </List>

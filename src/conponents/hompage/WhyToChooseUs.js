@@ -25,6 +25,19 @@ const SectionHeader = styled.h4`
   }
 `;
 
+const Subheading = styled.p`
+  font-size: 1.25rem;
+  color: #666666;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.875rem;
+  }
+`;
+
 const ReasonsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -50,7 +63,6 @@ const ReasonCard = styled.div`
   padding: 15px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 
@@ -95,6 +107,7 @@ const WhyChooseUs = () => {
   return (
     <SectionContainer>
       <SectionHeader>Why Choose Us</SectionHeader>
+      <Subheading>Here are the top reasons why customers choose us for their painting needs</Subheading>
       <ReasonsContainer>
         {reasonsData.map((reason, index) => (
           <ReasonCard key={index}>

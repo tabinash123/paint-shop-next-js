@@ -1,80 +1,61 @@
 "use client"
 import React from 'react';
-import Image from 'next/image';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Container, Typography, IconButton } from '@mui/material';
-import {
-  Phone, Email, LocationOn, Facebook
-} from '@mui/icons-material';
-import imag from '../../../public/assets/images/house.png'
-
+import styled from 'styled-components';
+import { Facebook, Phone, Email, LocationOn } from '@mui/icons-material';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import ViberIcon from '@mui/icons-material/PhoneInTalk';
 
 const ContactUs = () => {
   return (
-    <>
-      <GlobalStyle />
-      <StyledContainer>
-        <ContentWrapper>
-          <ContactInfoContainer>
-            <Header>
-              <Typography variant="h4" gutterBottom>
-                Contact Us
-              </Typography>
-              <Typography variant="subtitle1">
-                We would love to hear from you. Here is how you can reach us.
-              </Typography>
-            </Header>
+    <StyledContainer>
+      <ContentWrapper>
+        <ContactInfoContainer>
+          <Header>
+            <Title>Contact Us</Title>
+            <Subtitle> Here is how you can reach us.</Subtitle>
+          </Header>
 
-            <ContactInfo>
-              <Typography variant="h6">Contact Information</Typography>
-              <InfoItem>
-                <Phone sx={{ mr: 1 }} /> +1 234 567 890
-              </InfoItem>
-              <InfoItem>
-                <Email sx={{ mr: 1 }} /> contact@ecommerce.com
-              </InfoItem>
-              <InfoItem>
-                <LocationOn sx={{ mr: 1 }} /> 1234 E-commerce St, Shopsville, USA
-              </InfoItem>
-              
-              <SocialMedia>
-                <IconButton href="https://www.facebook.com" target="_blank" aria-label="Facebook"><Facebook /></IconButton>
-              </SocialMedia>
-            </ContactInfo>
-          </ContactInfoContainer>
+          <ContactInfo>
+            <InfoTitle>Contact Information</InfoTitle>
+            <InfoItem>
+              <Email style={{ marginRight: '8px' }} />hariaryal222@gmail.com
+            </InfoItem>
+            <InfoItem>
+              <Phone style={{ marginRight: '8px' }} /> +1 234 567 890
+            </InfoItem>
+            <InfoItem>
+              <WhatsAppIcon style={{ marginRight: '8px' }} /> +1 234 567 891
+            </InfoItem>
+            <InfoItem>
+              <ViberIcon style={{ marginRight: '8px' }} /> +1 234 567 892
+            </InfoItem>
+            <InfoItem>
+              <LocationOn style={{ marginRight: '8px' }} /> sesmati khola,kathmandu
+            </InfoItem>
+          
+          </ContactInfo>
+        </ContactInfoContainer>
 
-          <MapContainer>
-            <iframe
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src="https://www.google.com/maps?q=Sesamati,+khola,+Kathmandu,+Nepal&output=embed"
-              allowFullScreen
-              aria-label="Map"
-            ></iframe>
-          </MapContainer>
-        </ContentWrapper>
-      </StyledContainer>
-    </>
+        <MapContainer>
+          <iframe
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            style={{ border: 0 }}
+            src="https://www.google.com/maps?q=Sesamati,+khola,+Kathmandu,+Nepal&output=embed"
+            allowFullScreen
+            aria-label="Map"
+          ></iframe>
+        </MapContainer>
+      </ContentWrapper>
+    </StyledContainer>
   );
 };
 
 export default ContactUs;
 
-// Global Style
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Lora', serif;
-    color: #333;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-  }
-`;
-
 // Styled Components
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
   margin-top: 40px;
   padding: 20px;
   background-color: #ffffff;
@@ -111,14 +92,29 @@ const ContactInfoContainer = styled.div`
   }
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   margin-bottom: 24px;
   text-align: center;
+`;
+
+const Title = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 8px;
+`;
+
+const Subtitle = styled.p`
+  font-size: 1rem;
+  color: #666;
 `;
 
 const ContactInfo = styled.div`
   margin-top: 24px;
   text-align: center;
+`;
+
+const InfoTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 16px;
 `;
 
 const InfoItem = styled.div`
@@ -135,9 +131,19 @@ const SocialMedia = styled.div`
   justify-content: center;
 `;
 
-const ShopImageContainer = styled.div`
-  margin-top: 24px;
-  width: 100%;
+const IconButton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    color: #3b5998;
+  }
 `;
 
 const MapContainer = styled.div`
