@@ -77,7 +77,7 @@ const HeroSection = () => {
   return (
     <Section>
       <Container>
-        <Headline>Welcome to Saurav and Shuvam Paint!</Headline>
+        <Headline>Welcome to Saurav and Shuvam Paint</Headline>
         <Subheadline>Your Trusted Paint Partner in Kathmandu, Nepal</Subheadline>
         <Paragraph>
           At Saurav and Shuvam Paint, we are proud to be your authorized dealer of Asian Paints, bringing vibrant and high-quality paint solutions to Kathmandu and beyond. Whether you are renovating your home, designing a new space, or undertaking a professional project, we offer a diverse range of colors and finishes to meet your needs.
