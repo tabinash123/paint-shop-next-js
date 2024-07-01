@@ -1,6 +1,6 @@
 // "use client"
 import React from 'react';
-import styled from 'styled-components';
+import styled from  'styled-components';
 
 const BlogContainer = styled.div`
   padding: 20px;
@@ -142,7 +142,7 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Exterior Paints</ListItemTitle>
             <ListItemContent>
-              Nepal's diverse climate demands robust exterior paints. These paints are formulated to withstand weather conditions, resisting fading, cracking, and mildew. They are available in finishes like flat, semi-gloss, and gloss to protect and beautify your home's exterior.
+              Nepal is diverse climate demands robust exterior paints. These paints are formulated to withstand weather conditions, resisting fading, cracking, and mildew. They are available in finishes like flat, semi-gloss, and gloss to protect and beautify your home is exterior.
             </ListItemContent>
           </ListItem>
           <ListItem>
@@ -168,13 +168,13 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 2: Gathering Your Materials</ListItemTitle>
             <ListItemContent>
-              Assemble all necessary materials before starting. This includes paint, brushes, rollers, painter's tape, drop cloths, and a ladder. Having everything ready will streamline the painting process.
+              Assemble all necessary materials before starting. This includes paint, brushes, rollers, painter is tape, drop cloths, and a ladder. Having everything ready will streamline the painting process.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 3: Protecting Your Space</ListItemTitle>
             <ListItemContent>
-              Cover floors and furniture with drop cloths to protect them from paint splatters. Use painter's tape to mask off areas you don't want painted, such as trim, windows, and doors.
+              Cover floors and furniture with drop cloths to protect them from paint splatters. Use painter is tape to mask off areas you don't want painted, such as trim, windows, and doors.
             </ListItemContent>
           </ListItem>
           <ListItem>
@@ -186,13 +186,13 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 5: Rolling the Paint</ListItemTitle>
             <ListItemContent>
-              Use a roller to apply paint to the main wall surfaces. Roll in a "W" or "M" pattern for even coverage. It's better to apply several thin coats rather than one thick one to avoid drips and ensure a smooth finish.
+              Use a roller to apply paint to the main wall surfaces. Roll in a "W" or "M" pattern for even coverage. It is better to apply several thin coats rather than one thick one to avoid drips and ensure a smooth finish.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 6: Final Touches</ListItemTitle>
             <ListItemContent>
-              Once the paint is dry, carefully remove the painter's tape. Touch up any areas where paint has seeped through or coverage is uneven. Clean your brushes and rollers for future use.
+              Once the paint is dry, carefully remove the painter is tape. Touch up any areas where paint has seeped through or coverage is uneven. Clean your brushes and rollers for future use.
             </ListItemContent>
           </ListItem>
         </List>
@@ -206,13 +206,13 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 1: Assess the Room</ListItemTitle>
             <ListItemContent>
-              Think about the room's size, lighting, and existing decor. Light colors can make a small room feel larger, while darker shades add a cozy vibe. Natural light affects how colors look, so observe the room at different times of the day.
+              Think about the room is size, lighting, and existing decor. Light colors can make a small room feel larger, while darker shades add a cozy vibe. Natural light affects how colors look, so observe the room at different times of the day.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 2: Choose a Color Scheme</ListItemTitle>
             <ListItemContent>
-              Pick a color scheme that suits the room's function and your personal style. You can go for a monochromatic scheme (different shades of one color), analogous colors (colors next to each other on the color wheel), or complementary colors (opposite each other on the color wheel).
+              Pick a color scheme that suits the room is function and your personal style. You can go for a monochromatic scheme (different shades of one color), analogous colors (colors next to each other on the color wheel), or complementary colors (opposite each other on the color wheel).
             </ListItemContent>
           </ListItem>
           <ListItem>
@@ -224,13 +224,13 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 4: Consider the Finish</ListItemTitle>
             <ListItemContent>
-              The finish you choose can impact the room's look and feel. Matte finishes hide imperfections, while satin and semi-gloss finishes are more durable and easier to clean, perfect for high-traffic areas.
+              The finish you choose can impact the room is look and feel. Matte finishes hide imperfections, while satin and semi-gloss finishes are more durable and easier to clean, perfect for high-traffic areas.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 5: Make Your Decision</ListItemTitle>
             <ListItemContent>
-              Once you've tested your samples and considered the finish, make your final choice. Keep the room's purpose, lighting, and decor in mind to ensure a cohesive look.
+              Once you have tested your samples and considered the finish, make your final choice. Keep the room is purpose, lighting, and decor in mind to ensure a cohesive look.
             </ListItemContent>
           </ListItem>
         </List>
