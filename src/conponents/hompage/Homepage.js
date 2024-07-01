@@ -4,7 +4,7 @@ import Costumer from './Costumer'
 import WhyChooseUsSection from './WhyToChooseUs'
 import Blog from '../Blog'
 import Intro from './Intro'
-import CategorySection from './CategorySection'
+import CategorySection from './categorySection/CategorySection'
 
 const Homepage = () => {
   return (

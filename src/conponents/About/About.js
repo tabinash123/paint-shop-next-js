@@ -1,9 +1,8 @@
-"use client"
-import Introduction from './Introduction'
-import Mission from './Mission'
+import Introduction from './introduction/Introduction'
+import Mission from './mission/Mission'
 import WhyUs from '../hompage/WhyToChooseUs'
-import UserReviews from './UserReview'
-import Vision from './Vision';
+import UserReviews from './userReviews/UserReview'
+import Vision from './vision/Vision';
 
 
 
