@@ -174,19 +174,19 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 3: Protecting Your Space</ListItemTitle>
             <ListItemContent>
-              Cover floors and furniture with drop cloths to protect them from paint splatters. Use painter is tape to mask off areas you don't want painted, such as trim, windows, and doors.
+              Cover floors and furniture with drop cloths to protect them from paint splatters. Use painter is tape to mask off areas you don not want painted, such as trim, windows, and doors.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 4: Cutting In</ListItemTitle>
             <ListItemContent>
-              "Cutting in" involves painting the edges of your walls with a brush. This means painting along the ceiling, corners, and trim where a roller can't reach. This creates a clean border for the rest of your painting.
+              Cutting in, involves painting the edges of your walls with a brush. This means painting along the ceiling, corners, and trim where a roller can not reach. This creates a clean border for the rest of your painting.
             </ListItemContent>
           </ListItem>
           <ListItem>
             <ListItemTitle>Step 5: Rolling the Paint</ListItemTitle>
             <ListItemContent>
-              Use a roller to apply paint to the main wall surfaces. Roll in a "W" or "M" pattern for even coverage. It is better to apply several thin coats rather than one thick one to avoid drips and ensure a smooth finish.
+              Use a roller to apply paint to the main wall surfaces. Roll in a W or M pattern for even coverage. It is better to apply several thin coats rather than one thick one to avoid drips and ensure a smooth finish.
             </ListItemContent>
           </ListItem>
           <ListItem>
@@ -218,7 +218,7 @@ const Blog = () => {
           <ListItem>
             <ListItemTitle>Step 3: Test Samples</ListItemTitle>
             <ListItemContent>
-              Always test paint samples on your walls. Paint small sections in various parts of the room to see how they look in different lighting. This helps you choose a color you'll be happy with in all conditions.
+              Always test paint samples on your walls. Paint small sections in various parts of the room to see how they look in different lighting. This helps you choose a color you will be happy with in all conditions.
             </ListItemContent>
           </ListItem>
           <ListItem>
