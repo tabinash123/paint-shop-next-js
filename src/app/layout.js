@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
@@ -61,6 +62,35 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <Head>
+        <title>sns-paint.com - Quality Paints in Kathmandu, Nepal</title>
+        <meta name="description" content="Welcome to sns-paint.com, the leading paint shop in Kathmandu, Nepal. Discover our wide range of quality paints for all your house painting needs." />
+        <link rel="canonical" href="https://www.sns-paint.com" />
+        <meta property="og:title" content="sns-paint.com - Quality Paints in Kathmandu, Nepal" />
+        <meta property="og:description" content="Welcome to sns-paint.com, the leading paint shop in Kathmandu, Nepal. Discover our wide range of quality paints for all your house painting needs." />
+        <meta property="og:image" content="https://www.sns-paint.com/images/og-image.jpg" />
+        <meta property="og:url" content="https://www.sns-paint.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "sns-paint.com",
+              "url": "https://www.sns-paint.com",
+              "description": "Welcome to sns-paint.com, the leading paint shop in Kathmandu, Nepal. Discover our wide range of quality paints for all your house painting needs.",
+              "publisher": {
+                "@type": "Organization",
+                "name": "sns-paint.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.sns-paint.com/images/logo.png"
+                }
+              }
+            }
+          `}
+        </script>
+      </Head>
       <GlobalStyle />
       <body>
         {loading ? (

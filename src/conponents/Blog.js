@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import './Blog.css';
+import Link from 'next/link';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -23,35 +24,39 @@ const CardContainer = () => {
       </div>
       <div className="container">
         {cardsData.map((card, index) => (
-          <Card key={index} className="customCard">
-            <div className="customCardMedia">
-              <Image
-                src={card.image}
-                alt={card.title}
-                layout="fill"
-                objectFit="cover"
-              />
-              <div className="dateOverlay">
-                <CalendarTodayIcon fontSize="small" />
-                {card.date}
-              </div>
-            </div>
-            <CardContent className="customCardContent">
-              <div className="userInfo">
-                <AccountCircleIcon fontSize="small" />
-                <Typography className="userName">{card.author}</Typography>
-              </div>
-              <Typography className="title" gutterBottom variant="h6" component="div">
-                {card.title}
-              </Typography>
-              <Typography className="description" variant="body2">
-                {card.description}
-              </Typography>
-            </CardContent>
-            <CardActions className="customCardActions">
-              <div className="readMoreText">Read more</div>
-            </CardActions>
-          </Card>
+          <Link key={index} href="/blog" passHref style={{textDecorationLine:'none'}} >
+            
+              <Card className="customCard">
+                <div className="customCardMedia">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="dateOverlay">
+                    <CalendarTodayIcon fontSize="small" />
+                    {card.date}
+                  </div>
+                </div>
+                <CardContent className="customCardContent">
+                  <div className="userInfo">
+                    <AccountCircleIcon fontSize="small" />
+                    <Typography className="userName">{card.author}</Typography>
+                  </div>
+                  <Typography className="title" gutterBottom variant="h6" component="div">
+                    {card.title}
+                  </Typography>
+                  <Typography className="description" variant="body2">
+                    {card.description}
+                  </Typography>
+                </CardContent>
+                <CardActions className="customCardActions">
+                  <div className="readMoreText">Read more</div>
+                </CardActions>
+              </Card>
+           
+          </Link>
         ))}
       </div>
     </div>

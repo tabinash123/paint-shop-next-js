@@ -6,7 +6,7 @@ import ApexUltimaClear from '../../public/assets/paint images/ApexUltimaClear.pn
 import ApexWeatherproofEmulsion from '../../public/assets/paint images/ApexWeatherproofEmulsion.png';
 import DecoprimeWallPrimer from '../../public/assets/paint images/DecoprimeWallPrimer.png';
 import MelamyneSealer from '../../public/assets/paint images/MelamyneSealer.png';
-import PUWoodFinish from '../../public/assets/paint images/PUWoodFinish.png';
+import Touchwood from '../../public/assets/paint images/Touchwood.png';
 import RoyaleLuxuryEmulsion from '../../public/assets/paint images/RoyaleLuxuryEmulsion.png';
 import RoyalePlayDune from '../../public/assets/paint images/RoyalePlayDune.png';
 import SmartCareDampProof from '../../public/assets/paint images/SmartCareDampProof.png';
@@ -14,6 +14,10 @@ import TractorEnamel from '../../public/assets/paint images/TractorEnamel.png';
 import TractorPrimer from '../../public/assets/paint images/TractorPrimer.png';
 import UltimaCreatexCrosstex from '../../public/assets/paint images/UltimaCreatexCrosstex.png';
 import UltimaProtekShyne from '../../public/assets/paint images/UltimaProtekShyne.png';
+import RoyaleAspira from '../../public/assets/paint images/RoyaleAspira.png';
+import RoyalBling from '../../public/assets/paint images/RoyalBling.png';
+import VitaliaNeo from '../../public/assets/paint images/VitaliaNeo.png';
+import SmartCareHydroloc from '../../public/assets/paint images/SmartCareHydroloc.png';
 
 const products = [
     {
@@ -23,9 +27,9 @@ const products = [
                 subcategory: "Plain Finishes",
                 products: [
                     { name: "Tractor Emulsion", imageUrl: TractorEnamel },
-                    { name: "Premium Emulsion", imageUrl: ApcolitePremiumGlossEnamel },
+                    { name: "Royale Bling", imageUrl: RoyalBling },
                     { name: "Royale Luxury Emulsion", imageUrl: RoyaleLuxuryEmulsion },
-                    { name: "Royale Aspira", imageUrl: RoyaleLuxuryEmulsion }
+                    { name: "Royale Aspira", imageUrl: RoyaleAspira }
                 ]
             },
             {
@@ -88,7 +92,7 @@ const products = [
                 subcategory: "Wood Finish",
                 products: [
                     { name: "Melamyne Sealer", imageUrl: MelamyneSealer },
-                    { name: "Melamyne Glossy", imageUrl: MelamyneSealer }
+                    { name: "Touchwood", imageUrl: Touchwood }
                 ]
             }
         ]
@@ -100,32 +104,14 @@ const products = [
                 subcategory: "All Products",
                 products: [
                     { name: "SmartCare Damp Proof", imageUrl: SmartCareDampProof },
-                    { name: "SmartCare Damp Block", imageUrl: SmartCareDampProof }
+                    { name: "SmartCare Hydroloc", imageUrl: SmartCareHydroloc },
+                    { name: "VitaliaNeo", imageUrl: VitaliaNeo }
                 ]
             },
             {
                 subcategory: "Exterior & Punning Wall",
                 products: [
                     { name: "SmartCare Damp Proof", imageUrl: SmartCareDampProof }
-                ]
-            },
-            {
-                subcategory: "Bathrooms",
-                products: [
-                    { name: "SmartCare Bathroom Waterproofing", imageUrl: SmartCareDampProof }
-                ]
-            },
-            {
-                subcategory: "Interiors",
-                products: [
-                    { name: "SmartCare Damp Block", imageUrl: SmartCareDampProof }
-                ]
-            },
-            {
-                subcategory: "Terrace and Tanks",
-                products: [
-                    { name: "SmartCare Roofseal", imageUrl: SmartCareDampProof },
-                    { name: "SmartCare Tank Waterproofing", imageUrl: SmartCareDampProof }
                 ]
             },
             {

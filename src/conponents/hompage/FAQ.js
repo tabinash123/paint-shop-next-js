@@ -86,26 +86,42 @@ const ExpandIcon = styled.span`
 
 const faqData = [
   {
-    question: "What is your return policy?",
-    answer: "Our return policy allows for returns within 30 days of purchase. Please ensure that the product is in its original condition and packaging. Contact our customer service for more details.",
+    question: "What types of paints do you offer?",
+    answer: "We offer a wide range of paints including interior paints, exterior paints, enamel paints, and specialty finishes. Our selection includes products from top brands to suit every need and budget.",
   },
   {
-    question: "Do you offer international shipping?",
-    answer: "Yes, we offer international shipping to most countries. Shipping costs and delivery times vary depending on the destination. Please refer to our shipping policy for more information.",
+    question: "Do you provide home delivery within Nepal?",
+    answer: "Yes, we provide home delivery services across Nepal. Delivery charges may vary depending on the location. Please refer to our delivery policy for more details.",
   },
   {
-    question: "How can I track my order?",
-    answer: "Once your order has been shipped, you will receive an email with a tracking number and a link to track your order. You can also track your order through our website by logging into your account.",
+    question: "How can I choose the right paint for my home?",
+    answer: "Choosing the right paint depends on various factors such as the surface type, the desired finish, and the environment. Our website offers a detailed guide and customer support to help you make the best choice. You can also visit our store for personalized advice.",
   },
+  {
+    question: "Are there any discounts available on bulk purchases?",
+    answer: "Yes, we offer discounts on bulk purchases. Please contact our customer service or visit our store to learn more about our bulk pricing and special offers.",
+  },
+  {
+    question: "What are your store locations in Nepal?",
+    answer: "Our main store is located in Kathmandu.",
+  },
+  
   {
     question: "What payment methods do you accept?",
-    answer: "We accept various payment methods including credit/debit cards, PayPal, and bank transfers. All transactions are secure and encrypted for your safety.",
+    answer: "We accept various payment methods including cash on delivery, credit/debit cards, bank transfers, and popular digital wallets like eSewa and Khalti.",
   },
   {
-    question: "How do I contact customer support?",
-    answer: "You can contact our customer support team via email, phone, or live chat. Our contact information is available on the 'Contact Us' page. We strive to respond to all inquiries within 24 hours.",
+    question: "Can I return or exchange a product?",
+    answer: "Yes, we have a return and exchange policy. Products can be returned or exchanged within 15 days of purchase, provided they are in their original condition and packaging. Please contact our customer service for assistance.",
+  },
+  {
+    question: "How can I contact customer support?",
+    answer: "You can reach our customer support team via phone, email, or live chat on our website. Visit our 'Contact Us' page for more details.",
   },
 ];
+
+
+
 
 const FAQ = () => {
   const [expanded, setExpanded] = useState(null);
