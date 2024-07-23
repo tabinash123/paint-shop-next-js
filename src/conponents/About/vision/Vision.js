@@ -144,7 +144,7 @@ const OwnerIntroduction = () => {
           </Grid>
           <Grid item xs={12} md={7}>
             <QuoteText variant="h4">
-              "Color is a power which directly influences the soul."
+              Color is a power which directly influences the soul.
             </QuoteText>
             <QuoteAuthor variant="h6">
               - Wassily Kandinsky

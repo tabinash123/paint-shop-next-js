@@ -96,7 +96,7 @@ const FAQSection = () => {
   return (
     <StyledContainer>
       <Header>
-        <Typography variant="h6" color="error" fontWeight="bold">FAQ'S</Typography>
+        <Typography variant="h6" color="error" fontWeight="bold">FAQ </Typography>
       </Header>
       <SubHeader>
         Frequently Asked Questions

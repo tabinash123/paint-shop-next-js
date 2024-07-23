@@ -1,4 +1,4 @@
-import React from 'react';
+import React from  'react';
 import styled from 'styled-components';
 import { Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
@@ -157,13 +157,13 @@ const AboutIntroduction = () => {
       <ContentSection>
         <Title variant="h6">ABOUT SAURAV AND SHUVAM PAINTS</Title>
         <Heading variant="h2">
-          Coloring Kathmandu's Homes
+          Coloring Kathmandu Homes
           <br />
           With Trust and Quality
         </Heading>
         <Description>
           Founded in Kathmandu, Saurav and Shuvam Paints has been brightening homes and businesses 
-          across the city since 2010. We're more than just a paint shop – we're your partners in 
+          across the city since 2010. We are more than just a paint shop – we are your partners in 
           transforming spaces with vibrant, durable, and eco-friendly colors. Our journey began with 
           a simple idea: to provide top-quality paints with unmatched customer service.
         </Description>
