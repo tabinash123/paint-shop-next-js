@@ -1,26 +1,19 @@
-import ApcolitePremiumGlossEnamel from '../../public/assets/paint images/ApcolitePremiumGlossEnamel.png';
-import ApcolitePremiumSatinEnamel from '../../public/assets/paint images/ApcolitePremiumSatinEnamel.png';
-import ApexDuracastPebbletex from '../../public/assets/paint images/ApexDuracastPebbletex.png';
-import ApexUltima from '../../public/assets/paint images/ApexUltima.png';
-import ApexUltimaClear from '../../public/assets/paint images/ApexUltimaClear.png';
-import ApexWeatherproofEmulsion from '../../public/assets/paint images/ApexWeatherproofEmulsion.png';
-import DecoprimeWallPrimer from '../../public/assets/paint images/DecoprimeWallPrimer.png';
-import MelamyneSealer from '../../public/assets/paint images/MelamyneSealer.png';
-import PUWoodFinish from '../../public/assets/paint images/PUWoodFinish.png';
-import RoyaleLuxuryEmulsion from '../../public/assets/paint images/RoyaleLuxuryEmulsion.png';
-import RoyalePlayDune from '../../public/assets/paint images/RoyalePlayDune.png';
-import SmartCareDampProof from '../../public/assets/paint images/SmartCareDampProof.png';
-import TractorEnamel from '../../public/assets/paint images/TractorEnamel.png';
-import UltimaCreatexCrosstex from '../../public/assets/paint images/UltimaCreatexCrosstex.png';
-import UltimaProtekShyne from '../../public/assets/paint images/UltimaProtekShyne.png';
+import ApcolitePremiumGlossEnamel from '../../public/assets/paint images/ApcolitePremiumGlossEnamel.png'; // Matched: Metal Enamels
+import ApexUltima from '../../public/assets/paint images/ApexUltima.png'; // Matched: Exterior Plain Finishes
+import ApexWeatherproofEmulsion from '../../public/assets/paint images/ApexWeatherproofEmulsion.png'; // Matched: Exterior Plain Finishes
+import DecoprimeWallPrimer from '../../public/assets/paint images/DecoprimeWallPrimer.png'; // Matched: Interior Undercoat
+import Touchwood from '../../public/assets/paint images/Touchwood.png'; // Matched: Wood Finish
+import RoyaleLuxuryEmulsion from '../../public/assets/paint images/RoyaleLuxuryEmulsion.png'; // Matched: Interior Plain Finishes
+import TractorEnamel from '../../public/assets/paint images/TractorEnamel.png'; // Matched: Metal Enamels
+import UltimaProtekShyne from '../../public/assets/paint images/UltimaProtekShyne.png'; // Matched: Exterior Plain Finishes
+import RoyaleAspira from '../../public/assets/paint images/RoyaleAspira.png'; // Matched: Interior Plain Finishes
+import RoyalBling from '../../public/assets/paint images/RoyalBling.png'; // Matched: Interior Plain Finishes
+import VitaliaNeo from '../../public/assets/paint images/VitaliaNeo.png'; // Matched: Water Proofing
+import SmartCareHydroloc from '../../public/assets/paint images/SmartCareHydroloc.png'; // Matched: Water Proofing
+
 
 const bestsellingproducts = [
   {
-    title: 'Tractor Acrylic Distemper',
-    description: 'Durable and smooth finish with fast drying properties.',
-    image: TractorEnamel,
-  },
-  {
     title: 'Royale Luxury Emulsion',
     description: 'High sheen finish, perfect for interior walls.',
     image: RoyaleLuxuryEmulsion,
@@ -31,30 +24,85 @@ const bestsellingproducts = [
     image: ApexUltima,
   },
   {
-    title: 'SmartCare Damp Proof',
+    title: 'SmartCare Hydroloc',
     description: 'Advanced waterproofing for all surfaces.',
-    image: SmartCareDampProof,
+    image: SmartCareHydroloc,
   },
   {
-    title: 'Tractor Acrylic Distemper',
+    title: 'Tractor Enamel',
     description: 'Durable and smooth finish with fast drying properties.',
     image: TractorEnamel,
   },
   {
-    title: 'Royale Luxury Emulsion',
-    description: 'High sheen finish, perfect for interior walls.',
-    image: RoyaleLuxuryEmulsion,
-  },
-  {
-    title: 'Apex Ultima',
+    title: 'Apex Weatherproof Emulsion',
     description: 'Weatherproof and durable exterior paint.',
-    image: ApexUltima,
+    image: ApexWeatherproofEmulsion,
   },
   {
-    title: 'SmartCare Damp Proof',
-    description: 'Advanced waterproofing for all surfaces.',
-    image: SmartCareDampProof,
+    title: 'Ultima Protek Shyne',
+    description: 'High gloss and weatherproof exterior paint.',
+    image: UltimaProtekShyne,
   },
+  {
+    title: 'Royale Bling',
+    description: 'A luxurious, high gloss finish for interior walls.',
+    image: RoyalBling,
+  },
+  {
+    title: 'Royale Aspira',
+    description: 'A high sheen, durable finish for interior walls.',
+    image: RoyaleAspira,
+  },
+  {
+    title: 'Royale Bling',
+    description: 'A luxurious, high gloss finish for interior walls.',
+    image: RoyalBling,
+  },
+  {
+    title: 'Royale Aspira',
+    description: 'A high sheen, durable finish for interior walls.',
+    image: RoyaleAspira,
+  },
+  {
+    title: 'Royale Bling',
+    description: 'A luxurious, high gloss finish for interior walls.',
+    image: RoyalBling,
+  },
+  {
+    title: 'Royale Aspira',
+    description: 'A high sheen, durable finish for interior walls.',
+    image: RoyaleAspira,
+  },
+  {
+    title: 'Royale Bling',
+    description: 'A luxurious, high gloss finish for interior walls.',
+    image: RoyalBling,
+  },
+  {
+    title: 'Royale Aspira',
+    description: 'A high sheen, durable finish for interior walls.',
+    image: RoyaleAspira,
+  },
+  {
+    title: 'Apcolite Premium Gloss Enamel',
+    description: 'A high gloss enamel for metal surfaces.',
+    image: ApcolitePremiumGlossEnamel,
+  },
+  {
+    title: 'Decoprime Wall Primer',
+    description: 'A superior wall primer for interior surfaces.',
+    image: DecoprimeWallPrimer,
+  },
+  {
+    title: 'Touchwood',
+    description: 'A premium wood finish for a smooth and durable surface.',
+    image: Touchwood,
+  },
+  {
+    title: 'Vitalia Neo',
+    description: 'Advanced waterproofing for all surfaces.',
+    image: VitaliaNeo,
+  }
 ];
 
 export default bestsellingproducts;

@@ -20,9 +20,7 @@
   text-align: center;
   margin-bottom: 40px;
   font-size: 28px;
-  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color:#003366;
 }
 
 @media (max-width: 1200px) {
@@ -60,9 +58,7 @@
 
 .sectionTitle {
   font-size: 24px;
-  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color:#003a69;
   border-bottom: 2px solid #FF5733;
   padding-bottom: 10px;
   margin-bottom: 20px;

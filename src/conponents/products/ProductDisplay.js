@@ -1,5 +1,7 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion } from 'framer-motion';
+
 import styled, { createGlobalStyle } from 'styled-components';
 import {
   MenuItem,
@@ -10,9 +12,9 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import StarIcon from '@mui/icons-material/Star';
 import products from '../../data/products';
 
-// Global styles with the new color scheme and typography
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
   body {
@@ -38,54 +40,25 @@ const Container = styled.div`
   }
 `;
 
-const GradientHeader = styled.h4`
-  background: linear-gradient(90deg, #00953b, #5F2477, #BA3966, #F06C45);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 2.5rem;
-  font-family: 'Playfair Display', serif;
+const GradientHeader = styled.p`
+  color: #003366;
+  margin-bottom: 10px;
+   font-size: 2rem;
+  font-weight: 800;
+  font-family: Arial, sans-serif;
+
   @media (max-width: 600px) {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  @media (max-width: 400px) {
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
-  @media (min-width: 601px) and (max-width: 960px) {
-    font-size: 2.25rem;
-  }
-  @media (min-width: 961px) and (max-width: 1280px) {
     font-size: 2.5rem;
-  }
-  @media (min-width: 1281px) {
-    font-size: 3rem;
   }
 `;
 
 const SubHeader = styled.p`
-  color: #444;
+  color: #e91e63;
   margin-bottom: 30px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
   @media (max-width: 600px) {
     font-size: 1rem;
-  }
-  @media (max-width: 400px) {
-    font-size: 0.9rem;
-    font-weight: 300;
-  }
-  @media (min-width: 601px) and (max-width: 960px) {
-    font-size: 1.1rem;
-  }
-  @media (min-width: 961px) and (max-width: 1280px) {
-    font-size: 1.2rem;
-  }
-  @media (min-width: 1281px) {
-    font-size: 1.3rem;
   }
 `;
 
@@ -96,20 +69,18 @@ const DotWrapper = styled.div`
   & > span {
     height: 12px;
     width: 12px;
-    background-color: ${props => props.color};
     border-radius: 50%;
     display: inline-block;
     margin: 0 7px;
   }
 `;
 
-const SubcategoryHeader = styled.h5`
+const SubcategoryHeader = styled.h2`
   text-align: left;
   margin-top: 40px;
   font-size: 1.8rem;
-  background: linear-gradient(90deg, #FF5733, #C70039, #900C3F, #581845);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #003366;
+
   @media (max-width: 600px) {
     font-size: 1.5rem;
   }
@@ -117,88 +88,84 @@ const SubcategoryHeader = styled.h5`
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
   margin: 30px 0;
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 601px) and (max-width: 960px) {
+
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
+   
   }
-  @media (min-width: 961px) and (max-width: 1280px) {
-    grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    
   }
-  @media (min-width: 1281px) {
-    grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top:40px;
   }
 `;
 
-const ProductCard = styled.div`
-  width: 100%;
-  max-width: 250px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
 
-  @media (max-width: 600px) {
-    max-width: 150px;
+const ProductCard = styled(motion.div)`
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
   }
-  @media (max-width: 400px) {
-    max-width: 2000px;
-  }
+`;
+
+const ProductImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
 `;
 
 const ProductImage = styled(Image)`
-  border-radius: 12px 12px 0 0;
-  max-width: 180px;
-  max-height: 200px;
-  margin-top:10px;
-
-  @media (max-width: 600px) {
-    width: 100%;
-    height: auto;
-  }
-  @media (max-width: 400px) {
-    width: 100%;
-    height: auto;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+const ProductInfo = styled.div`
+  padding: 15px;
 `;
 
-const ProductTitle = styled.h6`
-  font-weight: 600;
-  margin-top: 5px;
+
+
+const ProductTitle = styled.h3`
+    display: flex;
+  align-items: center;
   font-size: 1rem;
-  font-family: 'Playfair Display', serif;
   color: #333;
-  padding: 0 10px 15px 10px;
-  @media (max-width: 400px) {
-    font-size: 0.8rem;
-  }
-  @media (max-width: 600px) {
-    font-size: 0.9rem;
-  }
-  @media (min-width: 601px) and (max-width: 960px) {
-    font-size: 1rem;
-  }
-  @media (min-width: 961px) and (max-width: 1280px) {
-    font-size: 1.1rem;
-  }
+  margin: 0 0 10px;
+  font-weight: 400;
+  
 `;
 
-const WhatsAppContact = styled.div`
+const WhatsAppButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  color: orange;
-  a {
-    color: inherit;
-    text-decoration: none;
-    margin-left: 5px;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0 0 8px 8px;
+  transition: background-color 0.3s;
+    background-color: #128C7E;
+
+  &:hover {
+  background-color: #25D366;
   }
 `;
 
@@ -253,11 +220,12 @@ const CustomCircularProgress = styled(CircularProgress)`
     color: #00953b;
   }
 `;
+
 const DividerStyled = styled.div`
   width: 80%;
   height: 1px;
   background-color: #ccc;
-  margin: 20px 0;
+  margin: 20px auto;
 `;
 
 const ProductDisplay = () => {
@@ -267,34 +235,35 @@ const ProductDisplay = () => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
+
+    return () => clearTimeout(timer);
   }, [selectedCategory]);
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  const filteredProducts = () => {
+  const filteredProducts = useMemo(() => {
     if (!selectedCategory) return [];
     const category = products.find(product => product.category === selectedCategory);
-    return category.subcategories.map(subcategory => ({
+    return category?.subcategories.map(subcategory => ({
       subcategoryName: subcategory.subcategory,
       products: subcategory.products
-    }));
-  };
+    })) || [];
+  }, [selectedCategory]);
 
   return (
     <Container>
       <GlobalStyle />
       <GradientHeader>Our Products</GradientHeader>
-      <SubHeader>Discover our top-rated products that customers love</SubHeader>
+      <SubHeader>Discover our products</SubHeader>
       <DotWrapper>
-        <span style={{ backgroundColor: '#00953b' }}></span>
-        <span style={{ backgroundColor: '#5F2477' }}></span>
-        <span style={{ backgroundColor: '#BA3966' }}></span>
-        <span style={{ backgroundColor: '#F06C45' }}></span>
+        {['#00953b', '#5F2477', '#BA3966', '#F06C45'].map((color, index) => (
+          <span key={index} style={{ backgroundColor: color }}></span>
+        ))}
       </DotWrapper>
       <StyledFormControl variant="outlined">
         <InputLabel id="category-label">Category</InputLabel>
@@ -314,30 +283,39 @@ const ProductDisplay = () => {
       {loading ? (
         <LoadingContainer><CustomCircularProgress size={50} thickness={4.5} /></LoadingContainer>
       ) : (
-        filteredProducts().map((subcategory, index) => (
-          <div key={index}>
+        filteredProducts.map((subcategory, index) => (
+          <React.Fragment key={index}>
             <DividerStyled />
             <SubcategoryHeader>{subcategory.subcategoryName}</SubcategoryHeader>
             <ProductGrid>
               {subcategory.products.map((product, productIndex) => (
                 <ProductCard key={productIndex}>
-                  <ProductImage
-                    src={product.imageUrl}
-                    alt={product.name}
-                    width={250}
-                    height={300}
-                  />
-                  <ProductTitle>{product.name}</ProductTitle>
-                  <WhatsAppContact>
-                    <WhatsAppIcon />
-                    <a href="https://wa.me/9742555743" target="_blank" rel="noopener noreferrer">
-                      9742555743
-                    </a>
-                  </WhatsAppContact>
+                  <ProductImageWrapper>
+                    <ProductImage
+                      src={product.imageUrl}
+                      alt={product.name}
+                      layout="fill"
+                objectFit="cover"
+                    />
+                  </ProductImageWrapper>
+                  <ProductInfo >
+                  <ProductTitle>
+                    {product.name}
+                    <StarIcon style={{ color: '#ffc107', marginLeft: '5px' }} />
+                  </ProductTitle>
+                  </ProductInfo>
+                  <WhatsAppButton 
+                    href="https://wa.me/9742555743" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label={`Contact via WhatsApp for ${product.name}`}
+                  >
+                    <WhatsAppIcon /> Contact 9742555743
+                  </WhatsAppButton>
                 </ProductCard>
               ))}
             </ProductGrid>
-          </div>
+          </React.Fragment>
         ))
       )}
       {error && <ErrorMessage>{error}</ErrorMessage>}
