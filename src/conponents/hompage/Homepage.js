@@ -3,9 +3,10 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Intro from './heroSection/HeroSection';
 import CategorySection from './categorySection/CategorySection';
+import BestSellingProducts from './BestSellingProducts';
+
 
 // Dynamically import larger components
-const BestSellingProducts = dynamic(() => import('./BestSellingProducts'), { ssr: true });
 const WhyChooseUsSection = dynamic(() => import('./WhyToChooseUs'), { ssr: true });
 const Blog = dynamic(() => import('../Blog'), { ssr: true });
 const FAQ = dynamic(() => import('./FAQ'), { ssr: true });
