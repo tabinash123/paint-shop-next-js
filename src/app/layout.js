@@ -5,7 +5,7 @@ import Head from 'next/head';
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
-import GlobalStyle from './GlobalStyles';
+// import GlobalStyle from './GlobalStyles';
 
 const spin = keyframes`
   0%, 100% {
@@ -91,7 +91,7 @@ export default function RootLayout({ children }) {
           `}
         </script>
       </Head>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <body>
         {loading ? (
           <LoaderContainer>

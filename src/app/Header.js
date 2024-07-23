@@ -1,8 +1,8 @@
 // components/Navbar.js
-import Image from 'next/image';
 import Link from 'next/link';
-import NavbarClient from './NavbarClient ';
-
+import NavbarClient from './NavbarClient';
+import { styled } from '@mui/system';
+import { Box, Typography } from '@mui/material';
 
 const GradientAppBar = ({ children }) => (
   <div style={{
@@ -19,34 +19,68 @@ const GradientAppBar = ({ children }) => (
   </div>
 );
 
-const LogoContainer = ({ children }) => (
-  <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-  }}>
-    {children}
-  </div>
+const LogoWrapper = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+});
+
+const LogoIcon = styled(Box)({
+  width: '50px',
+  height: '43px',
+  backgroundColor: '#e91e63',
+  clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+  marginRight: '10px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+const ArrowIcon = styled(Box)({
+  width: 0,
+  height: 0,
+  borderLeft: '8px solid transparent',
+  borderRight: '8px solid transparent',
+  borderBottom: '16px solid white',
+  transform: 'rotate(90deg)',
+});
+
+const LogoText = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const BrandName = styled(Typography)({
+  fontSize: '20px',
+  fontWeight: 'bold',
+  color: '#fff',
+  lineHeight: 1,
+});
+
+const Tagline = styled(Typography)({
+  fontSize: '12px',
+  color: '#fff',
+  textTransform: 'uppercase',
+});
+
+const Logo = () => (
+  <LogoWrapper>
+    <LogoIcon>
+      <ArrowIcon />
+    </LogoIcon>
+    <LogoText>
+      <BrandName>SNS PAINT</BrandName>
+      <Tagline>COLOR YOUR DREAMS</Tagline>
+    </LogoText>
+  </LogoWrapper>
 );
 
 export default function Navbar() {
-  const imageSrc = 'https://dt-paintpros.myshopify.com/cdn/shop/files/logo_a162f414-bff7-4279-b3f9-f69a785e16df.png';
-
   return (
     <GradientAppBar>
       <Link href="/" passHref>
-        <LogoContainer>
-          <Image
-            src={imageSrc}
-            alt="SnS Paint"
-            width={170}
-            height={70}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
-          />
-        </LogoContainer>
+        <Logo />
       </Link>
-
       <NavbarClient />
     </GradientAppBar>
   );

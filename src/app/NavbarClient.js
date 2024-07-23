@@ -13,9 +13,68 @@ import {
   Close as CloseIcon,
   ChevronRight as ChevronRightIcon,
 } from '@mui/icons-material';
+import { Box, Typography } from '@mui/material';
 
 // Styled components (DesktopMenu, MobileMenu, NavButton, DrawerOverlay, DrawerContainer, etc.) go here
 // ... (copy all styled components from the original file)
+
+
+const LogoWrapper = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  marginBottom: '20px',
+});
+
+const LogoIcon = styled(Box)({
+  width: '50px',
+  height: '43px',
+  backgroundColor: '#e91e63',
+  clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+  marginRight: '10px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+const ArrowIcon = styled(Box)({
+  width: 0,
+  height: 0,
+  borderLeft: '8px solid transparent',
+  borderRight: '8px solid transparent',
+  borderBottom: '16px solid white',
+  transform: 'rotate(90deg)',
+});
+
+const LogoText = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const BrandName = styled(Typography)({
+  fontSize: '1.4rem',
+  fontWeight: 800,
+  color: '#003366',
+  lineHeight: 1,
+});
+
+const Tagline = styled(Typography)({
+  fontSize: '12px',
+  color: '#fff',
+  textTransform: 'uppercase',
+});
+
+const Logo = () => (
+  <LogoWrapper>
+    <LogoIcon>
+      <ArrowIcon />
+    </LogoIcon>
+    <LogoText>
+      <BrandName style={{ fontWeight: 800, fontSize: '1rem', color: '#003366' }}>SNS PAINT</BrandName>
+      <Tagline style={{ fontWeight: 400, fontSize: '0.7rem', color: '#e91e63' }}>COLOR YOUR DREAMS</Tagline>
+    </LogoText>
+  </LogoWrapper>
+);
 
 
 const LogoContainer = styled.div`
@@ -165,8 +224,6 @@ const IconButton = styled.button.attrs(({ isOpen }) => ({
   }
 `;
 
-
-
 const NavItem = ({ href, active, onClick, children, icon: Icon }) => (
   <Link href={href} passHref style={{textDecoration:'none'}}>
     <DrawerNavButton onClick={onClick}>
@@ -255,6 +312,7 @@ export default function NavbarClient() {
             <CloseIcon />
           </IconButton>
         </DrawerHeader>
+        <Logo />
         <DrawerMenu>
           <NavItem href="/" active={isActive('/')} onClick={toggleDrawer} icon={HomeIcon}>
             Home
