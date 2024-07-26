@@ -69,7 +69,7 @@ const Logo = () => (
       <ArrowIcon />
     </LogoIcon>
     <LogoText>
-      <BrandName>SNS PAINT</BrandName>
+      <BrandName style={{textdecoration :"none"}} >SNS PAINT</BrandName>
       <Tagline>COLOR YOUR DREAMS</Tagline>
     </LogoText>
   </LogoWrapper>

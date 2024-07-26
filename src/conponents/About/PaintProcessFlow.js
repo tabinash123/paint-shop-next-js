@@ -81,7 +81,7 @@ const PaintProcessFlow = () => {
   return (
     <ProcessSection>
       <ProcessTitle variant="h6">OUR PROCESS</ProcessTitle>
-      <ProcessHeader variant="h3">Our Painting Process</ProcessHeader>
+      <ProcessHeader variant="h3" style={{marginBottom:"50px"}} >Our Painting Process</ProcessHeader>
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} md={3}>
           <StepIcon>

@@ -1,10 +1,18 @@
-import React from  'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Typography, Button, useMediaQuery, useTheme } from '@mui/material';
+import { Typography, useMediaQuery, useTheme } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import PhoneIcon from '@mui/icons-material/Phone';
-import shop from '../../../../public/assets/paint-store.jpg';
-import Image from 'next/image'; // Import Image from next/image
+import Image from 'next/image';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
+// Import your shop images
+import shop1 from '../../../../public/assets/shop images/shop1.jpg';
+import shop2 from '../../../../public/assets/shop images/shop2.jpg';
+import shop3 from '../../../../public/assets/shop images/shop3.jpg';
+import shop4 from '../../../../public/assets/shop images/shop4.jpg';
+import shop5 from '../../../../public/assets/shop images/shop5.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -13,11 +21,11 @@ const Container = styled.div`
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
-  margin-bottom:50px;
+    margin-bottom: 50px;
     padding: 40px;
   }
 `;
@@ -148,9 +156,39 @@ const StyledPhoneIcon = styled(PhoneIcon)`
   }
 `;
 
+const CarouselImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const StyledCarousel = styled(Carousel)`
+  .carousel .slide {
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .carousel .control-prev.control-arrow:before,
+  .carousel .control-next.control-arrow:before {
+    color: #e91e63;
+    font-size: 2rem;
+  }
+
+  .carousel .control-dots .dot {
+    background: #e91e63;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+`;
+
 const AboutIntroduction = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const shopImages = [shop1, shop2, shop3, shop4, shop5];
 
   return (
     <Container>
@@ -187,14 +225,20 @@ const AboutIntroduction = () => {
         </PhoneNumber>
       </ContentSection>
       <ImageSection>
-  <Image
-    src={shop}
-    alt="Shop Image"
-    layout="fill"
-    objectFit="cover"
-  />
-</ImageSection>
-     
+        <StyledCarousel
+          autoPlay
+          infiniteLoop
+          showStatus={false}
+          showThumbs={false}
+          interval={5000}
+        >
+          {shopImages.map((shop, index) => (
+            <div key={index}>
+              <CarouselImage style={{ maxHeight: "500px" }} src={shop.src} alt={`Shop Image ${index + 1}`} />
+            </div>
+          ))}
+        </StyledCarousel>
+      </ImageSection>
     </Container>
   );
 };

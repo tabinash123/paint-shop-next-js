@@ -1,7 +1,7 @@
 .hero-section {
   background: no-repeat center center;
   background-size: cover;
-  padding: 100px 20px;
+  padding: 80px 20px;
   text-align: center;
   position: relative;
   color: #fff;
@@ -23,28 +23,28 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 19px;
+  padding: 0 15px;
 }
 
 .headline {
   color: #FFFFFF;
-  margin-bottom: 20px;
-  font-size: 48px;
+  margin-bottom: 15px;
+  font-size: 36px;
   font-weight: 700;
 }
 
 .subheadline {
-  color: #F0E68C; /* Light Yellow */
-  margin-bottom: 20px;
-  font-size: 32px;
+  color: #F0E68C;
+  margin-bottom: 15px;
+  font-size: 24px;
   font-weight: 500;
 }
 
 .paragraph {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  color: #F8F8FF; /* Ghost White */
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #F8F8FF;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -52,10 +52,10 @@
 
 .call-to-action {
   display: inline-block;
-  padding: 15px 30px;
-  background-color: #1E90FF; /* Dodger Blue */
+  padding: 12px 24px;
+  background-color: #1E90FF;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   border-radius: 4px;
@@ -65,5 +65,66 @@
 
 .call-to-action:hover {
   background-color: #1C1C1C;
-  color: #FFD700; /* Gold */
+  color: #FFD700;
+}
+
+/* Responsive styles */
+@media (min-width: 576px) {
+  .hero-section {
+    padding: 100px 30px;
+  }
+  
+  .headline {
+    font-size: 40px;
+  }
+  
+  .subheadline {
+    font-size: 28px;
+  }
+  
+  .paragraph {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 120px 40px;
+  }
+  
+  .headline {
+    font-size: 44px;
+  }
+  
+  .subheadline {
+    font-size: 30px;
+  }
+  
+  .paragraph {
+    font-size: 18px;
+  }
+  
+  .call-to-action {
+    padding: 14px 28px;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding: 140px 50px;
+  }
+  
+  .headline {
+    font-size: 48px;
+  }
+  
+  .subheadline {
+    font-size: 32px;
+  }
+  
+  .call-to-action {
+    padding: 15px 30px;
+    font-size: 18px;
+  }
 }

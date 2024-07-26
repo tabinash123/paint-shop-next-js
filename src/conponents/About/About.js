@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import Introduction from './introduction/Introduction';
 import Mission from './mission/Mission';
-import WhyUs from '../hompage/WhyToChooseUs'
+import WhyUs from '../hompage/whyChooseUs/WhyToChooseUs'
 import UserReviews from './userReviews/UserReview';
 import Vision from './vision/Vision';
 import AssociatePartners from './AssociatePartners'

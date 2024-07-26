@@ -1,61 +1,80 @@
 import React, { useState } from 'react';
-import { styled } from '@mui/system';
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-  Container
-} from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import styled from 'styled-components';
 
-const StyledContainer = styled(Container)({
-  maxWidth: '768px',
-  margin: 'auto',
-  padding: '16px',
-});
+const FAQContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+`;
 
-const Header = styled('h2')({
-  textAlign: 'center',
-  marginBottom: '8px',
-});
+const FAQHeader = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+`;
 
-const SubHeader = styled('h1')({
-  textAlign: 'center',
-  fontSize: '2rem',
-  fontWeight: 'bold',
-  color: '#003366',
-  marginBottom: '32px',
-});
+const FAQSubHeader = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+`;
 
-const StyledAccordion = styled(Accordion)({
-  border: '1px solid #ccc',
-  borderRadius: '4px',
-  marginBottom: '16px',
-});
+const FAQGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
 
-const StyledAccordionSummary = styled((props) => <AccordionSummary {...props} />)(({ expanded }) => ({
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '16px',
-  fontSize: '1rem',
-  fontWeight: 'bold',
-  backgroundColor: expanded ? '#FF416C' : 'transparent',
-  color: expanded ? 'white' : '#003366',
-}));
+const FAQItem = styled.div`
+  background-color: #f5f5f5;
+  border-radius: 4px;
+`;
 
-const StyledAccordionDetails = styled(AccordionDetails)({
-  padding: '16px',
-  fontSize: '1rem',
-  color: '#555',
-});
+const FAQQuestion = styled.div`
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:after {
+    content: '+';
+    font-size: 1.5rem;
+  }
+
+  ${({ isOpen }) => isOpen && `
+    &:after {
+      content: '-';
+    }
+  `}
+`;
+
+const FAQAnswer = styled.div`
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+
+  ${({ isOpen }) => isOpen && `
+    max-height: 500px;
+    padding: 0 20px 20px;
+  `}
+`;
 
 const FAQSection = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [openItems, setOpenItems] = useState({});
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const toggleItem = (index) => {
+    setOpenItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
   };
 
   const faqData = [
@@ -77,15 +96,15 @@ const FAQSection = () => {
     },
     {
       question: "What are your store locations in Nepal?",
-      answer: "Our main store is located in Kathmandu.",
+      answer: "Our  store is located in Sesmati,Kathmandu.",
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept various payment methods including cash on delivery, credit/debit cards, bank transfers, and popular digital wallets like eSewa and Khalti.",
+      answer: "We accept various payment methods like bank transfers, eSewa and Khalti.",
     },
     {
       question: "Can I return or exchange a product?",
-      answer: "Yes, we have a return and exchange policy. Products can be returned or exchanged within 15 days of purchase, provided they are in their original condition and packaging. Please contact our customer service for assistance.",
+      answer: "Yes, we have a return and exchange policy. Products can be returned or exchanged within 5 days of purchase, provided they are in their original condition and packaging. Please contact our customer service for assistance.",
     },
     {
       question: "How can I contact customer support?",
@@ -94,34 +113,25 @@ const FAQSection = () => {
   ];
 
   return (
-    <StyledContainer>
-      <Header>
-        <Typography variant="h6" color="error" fontWeight="bold">FAQ </Typography>
-      </Header>
-      <SubHeader>
-        Frequently Asked Questions
-      </SubHeader>
-      
-      {faqData.map((faq, index) => (
-        <StyledAccordion
-          key={index}
-          expanded={expanded === `panel${index}`}
-          onChange={handleChange(`panel${index}`)}
-        >
-          <StyledAccordionSummary
-            expandIcon={expanded === `panel${index}` ? <RemoveIcon style={{ color: 'white' }} /> : <AddIcon style={{ color: '#003366' }} />}
-            aria-controls={`panel${index + 1}-content`}
-            id={`panel${index + 1}-header`}
-            expanded={expanded === `panel${index}`}
-          >
-            {faq.question}
-          </StyledAccordionSummary>
-          <StyledAccordionDetails>
-            {faq.answer}
-          </StyledAccordionDetails>
-        </StyledAccordion>
-      ))}
-    </StyledContainer>
+    <FAQContainer>
+      <FAQHeader>Frequently Asked Questions</FAQHeader>
+      <FAQSubHeader>Get answers to the most asked questions about our paint products and services.</FAQSubHeader>
+      <FAQGrid>
+        {faqData.map((item, index) => (
+          <FAQItem key={index}>
+            <FAQQuestion 
+              onClick={() => toggleItem(index)}
+              isOpen={openItems[index]}
+            >
+              {item.question}
+            </FAQQuestion>
+            <FAQAnswer isOpen={openItems[index]}>
+              {item.answer}
+            </FAQAnswer>
+          </FAQItem>
+        ))}
+      </FAQGrid>
+    </FAQContainer>
   );
 };
 

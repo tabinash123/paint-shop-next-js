@@ -2,10 +2,29 @@
 import React from 'react';
 import BackgroundImage from '../../../../public/assets/images.PNG';
 import './HeroSection.css';
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BackgroundImage});
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    padding: 30px;
+  }
+`;
+
 
 const HeroSection = () => {
   return (
-    <section className="hero-section" style={{ backgroundImage: `url(${BackgroundImage.src})` }}>
+    <Container className="hero-section" style={{ backgroundImage: `url(${BackgroundImage.src})` }}>
       <div className="container">
         <h1 className="headline">Welcome to Saurav and Shuvam Paint</h1>
         <h2 className="subheadline">Your Trusted Paint Partner in Kathmandu, Nepal</h2>
@@ -14,7 +33,7 @@ const HeroSection = () => {
         </p>
         <a className="call-to-action" href="/products">Explore Our Products</a>
       </div>
-    </section>
+    </Container>
   );
 };
 

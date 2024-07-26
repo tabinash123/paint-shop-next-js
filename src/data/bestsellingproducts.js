@@ -38,57 +38,7 @@ const bestsellingproducts = [
     description: 'Weatherproof and durable exterior paint.',
     image: ApexWeatherproofEmulsion,
   },
-  {
-    title: 'Ultima Protek Shyne',
-    description: 'High gloss and weatherproof exterior paint.',
-    image: UltimaProtekShyne,
-  },
-  {
-    title: 'Royale Bling',
-    description: 'A luxurious, high gloss finish for interior walls.',
-    image: RoyalBling,
-  },
-  {
-    title: 'Royale Aspira',
-    description: 'A high sheen, durable finish for interior walls.',
-    image: RoyaleAspira,
-  },
-  {
-    title: 'Royale Bling',
-    description: 'A luxurious, high gloss finish for interior walls.',
-    image: RoyalBling,
-  },
-  {
-    title: 'Royale Aspira',
-    description: 'A high sheen, durable finish for interior walls.',
-    image: RoyaleAspira,
-  },
-  {
-    title: 'Royale Bling',
-    description: 'A luxurious, high gloss finish for interior walls.',
-    image: RoyalBling,
-  },
-  {
-    title: 'Royale Aspira',
-    description: 'A high sheen, durable finish for interior walls.',
-    image: RoyaleAspira,
-  },
-  {
-    title: 'Royale Bling',
-    description: 'A luxurious, high gloss finish for interior walls.',
-    image: RoyalBling,
-  },
-  {
-    title: 'Royale Aspira',
-    description: 'A high sheen, durable finish for interior walls.',
-    image: RoyaleAspira,
-  },
-  {
-    title: 'Apcolite Premium Gloss Enamel',
-    description: 'A high gloss enamel for metal surfaces.',
-    image: ApcolitePremiumGlossEnamel,
-  },
-  {
+ {
     title: 'Decoprime Wall Primer',
     description: 'A superior wall primer for interior surfaces.',
     image: DecoprimeWallPrimer,

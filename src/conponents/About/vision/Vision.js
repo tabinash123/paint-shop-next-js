@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Typography, Grid, Box } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import Image from 'next/image'; // Import Image from next/image
-import shop from '../../../../public/assets/paint-store.jpg';
+import owner from '../../../../public/assets/owner.jpg';
 
 const Section = styled.div`
   padding: 80px 0;
@@ -134,7 +134,7 @@ const OwnerIntroduction = () => {
             <Box display="flex" justifyContent="center">
               <ImageSection>
                 <Image
-                  src={shop}
+                  src={owner}
                   alt="Shop Image"
                   layout="fill"
                   objectFit="cover"
