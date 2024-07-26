@@ -8,7 +8,6 @@ import BestSellingProducts from './bestSellingProducts/BestSellingProducts';
 const WhyChooseUsSection = dynamic(() => import('./whyChooseUs/WhyToChooseUs'), { ssr: true });
 const Blog = dynamic(() => import('../Blog'), { ssr: true });
 const FAQ = dynamic(() => import('./FAQ'), { ssr: true });
-import PromotionalBanner from './PromotionalBanner ';
 
 const Homepage = ({ businessInfo }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,7 +59,6 @@ const Homepage = ({ businessInfo }) => {
           <WhyChooseUsSection />
           <CategorySection />
           <Blog />
-          <PromotionalBanner />
           <FAQ />
         </>
       )}
