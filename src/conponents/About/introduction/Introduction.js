@@ -95,6 +95,7 @@ const Description = styled(Typography)`
     color: #555555;
     font-size: 14px;
     margin-bottom: 16px;
+        font-family: 'Graphik-Regular' !important;
 
     @media (min-width: 768px) {
       font-size: 16px;
@@ -221,7 +222,7 @@ const AboutIntroduction = () => {
         </ul>
         <PhoneNumber>
           <StyledPhoneIcon />
-          +977 1 4XXXXXX
+          +977 9851014256
         </PhoneNumber>
       </ContentSection>
       <ImageSection>

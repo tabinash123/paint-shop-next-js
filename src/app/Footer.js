@@ -136,19 +136,13 @@ const Footer = () => (
           </LogoText>
         </Logo>
         <Description>We provide a wide range of house painting colors and tools to bring your home to life.</Description>
-        <SocialIcons>
-          <IconButton href="#" color="inherit"><Facebook /></IconButton>
-          <IconButton href="#" color="inherit"><Twitter /></IconButton>
-          <IconButton href="#" color="inherit"><Instagram /></IconButton>
-          <IconButton href="#" color="inherit"><LinkedIn /></IconButton>
-        </SocialIcons>
+    
       </Grid>
       <Grid item xs={12} sm={4} md={2} lg={2}>
         <FooterColumn>
           <FooterTitle>Products</FooterTitle>
-          <FooterLink href="#">Interior Paints</FooterLink>
-          <FooterLink href="#">Exterior Paints</FooterLink>
-          <FooterLink href="#">Tools & Accessories</FooterLink>
+          <FooterLink href="products">Interior Paints</FooterLink>
+          <FooterLink href="products">Exterior Paints</FooterLink>
         </FooterColumn>
       </Grid>
       <Grid item xs={12} sm={4} md={2} lg={2}>
@@ -165,20 +159,20 @@ const Footer = () => (
       <Grid item xs={12}>
         <ContactInfo>
           <ContactIcon><Phone /></ContactIcon>
-          Phone: (+977) 123 456 789
+          Phone: 9851014256
         </ContactInfo>
         <ContactInfo>
           <ContactIcon><Mail /></ContactIcon>
-          Email: info@sns-paint.com
+          Email: hariaryal222@gmail.com
         </ContactInfo>
         <ContactInfo>
           <ContactIcon><LocationOn /></ContactIcon>
-          Location: Kathmandu, Nepal
+          Location: Sesmati,Kathmandu, Nepal
         </ContactInfo>
       </Grid>
     </Grid>
     <Copyright>
-      © 2024 SNS Paint. Powered by <Link href="https://chitrakootweb.com" style={{ color: '#e91e63' }}>Chitrakoot Web</Link>
+      © 2024 SNS Paint.
     </Copyright>
   </FooterWrapper>
 );

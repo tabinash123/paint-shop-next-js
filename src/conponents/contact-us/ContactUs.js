@@ -25,13 +25,13 @@ const ContactUs = () => {
                 <Email /> hariaryal222@gmail.com
               </InfoItem>
               <InfoItem>
-                <Phone /> +1 234 567 890
+                <Phone /> +977 9851014256
               </InfoItem>
               <InfoItem>
-                <WhatsAppIcon /> +1 234 567 891
+                <WhatsAppIcon /> +977 9851014256
               </InfoItem>
               <InfoItem>
-                <ViberIcon /> +1 234 567 892
+                <ViberIcon /> +977 9851014256
               </InfoItem>
               <InfoItem>
                 <LocationOn /> Sesamati Khola, Kathmandu
@@ -39,9 +39,8 @@ const ContactUs = () => {
             </ContactInfo>
             <BusinessHours>
               <InfoTitle>Business Hours</InfoTitle>
-              <InfoItem>Monday - Friday: 9:00 AM - 5:00 PM</InfoItem>
-              <InfoItem>Saturday: 10:00 AM - 2:00 PM</InfoItem>
-              <InfoItem>Sunday: Closed</InfoItem>
+              <InfoItem>Sunday - Friday: 10:00 AM - 5:00 PM</InfoItem>
+              <InfoItem>Saturday: Closed</InfoItem>
             </BusinessHours>
            
           </ContactInfoContainer>

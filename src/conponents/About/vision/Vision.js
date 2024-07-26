@@ -27,9 +27,8 @@ const Title = styled(Typography)`
     margin-bottom: 40px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-family: Arial, sans-serif;
-
-    font-size: 2rem;
+    font-family: 'Graphik-Regular' !important;
+    font-size: 1.7rem;
     @media (min-width: 600px) {
       font-size: 36px;
     }
@@ -69,6 +68,7 @@ const QuoteText = styled(Typography)`
   && {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-family: 'Graphik-Regular' !important;
 
     font-size: 18px;
     @media (min-width: 600px) {
