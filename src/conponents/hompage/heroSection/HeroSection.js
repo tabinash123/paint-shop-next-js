@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'antd';
-import BackgroundImage from '../../../../public/assets/hero3.PNG';
+import BackgroundImage from '../../../../public/assets/hero3.png';
 
 const HeroSection = styled.section`
   background-image: url(${BackgroundImage.src});
@@ -9,11 +8,9 @@ const HeroSection = styled.section`
   background-position: center;
   color: white;
   padding: 60px 0;
-  // min-height: 500px;
   display: flex;
   align-items: center;
   position: relative;
-
   &::before {
     content: '';
     position: absolute;
@@ -21,11 +18,9 @@ const HeroSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(26, 42, 58, 0.8) 0%, rgba(74, 90, 106, 0.8) 100%);
+    background: rgba(0, 0, 0, 0.5); // Adding a dark overlay for better text visibility
   }
-
   @media (min-width: 768px) {
-    // min-height: 600px;
     padding: 80px 0;
   }
 `;
@@ -40,15 +35,14 @@ const Container = styled.div`
 
 const HeroContent = styled.div`
   max-width: 100%;
-
+  text-align: center;
   @media (min-width: 768px) {
     max-width: 70%;
+    margin: 0 auto;
   }
-
   @media (min-width: 1024px) {
     max-width: 60%;
   }
-
   @media (min-width: 1200px) {
     max-width: 50%;
   }
@@ -59,14 +53,10 @@ const ShopName = styled.h1`
   font-weight: bold;
   margin-bottom: 15px;
   color: #ffd700;
-      font-family: 'Graphik-Regular' !important;
-
-  
-
+  font-family: 'Graphik-Regular', sans-serif !important;
   @media (min-width: 768px) {
     font-size: 44px;
   }
-
   @media (min-width: 1024px) {
     font-size: 52px;
   }
@@ -76,69 +66,48 @@ const Tagline = styled.h2`
   font-size: 24px;
   font-weight: normal;
   margin-bottom: 20px;
-      font-family: 'Graphik-Regular' !important;
-
-
+  font-family: 'Graphik-Regular', sans-serif !important;
   @media (min-width: 768px) {
     font-size: 28px;
   }
-
   @media (min-width: 1024px) {
     font-size: 32px;
   }
 `;
 
 const Description = styled.p`
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 25px;
-      font-size: 18px;
-    // color: #000;
-    font-family: 'Graphik-Regular' !important;
-    line-height: 27px;
-    margin-bottom: 0;
-
+  font-family: 'Graphik-Regular', sans-serif !important;
+  line-height: 27px;
   @media (min-width: 768px) {
     font-size: 17px;
     margin-bottom: 30px;
-    font-family: 'Graphik-Regular' !important;
   }
-
   @media (min-width: 1024px) {
     font-size: 18px;
-    font-family: 'Graphik-Regular' !important;
   }
 `;
 
-const CTAButton = styled(Button)`
+const CTAButton = styled.a`
+  display: inline-block;
   background-color: #E92B26;
-      float: left;
-    padding: 12px 10px;
-    border-radius: 40px;
-    border: unset;
-    font-size: 19px;
-    background-color: #E92B26;
-    color: #fff;
-  border-color: #ffd700;
-  color: #1a2a3a;
-  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 40px;
   font-size: 16px;
-  height: auto;
-  padding: 10px 20px;
-
-  @media (min-width: 768px) {
-    font-size: 17px;
-    padding: 11px 22px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 18px;
-    padding: 12px 24px;
-  }
-
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
   &:hover, &:focus {
     background-color: #f0c800;
-    border-color: #f0c800;
     color: #1a2a3a;
+  }
+  @media (min-width: 768px) {
+    font-size: 17px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
   }
 `;
 
@@ -148,14 +117,11 @@ const Hero = () => {
       <Container>
         <HeroContent>
           <ShopName>Shaurav and Suvam Paint Shop</ShopName>
-          <Tagline>Bringing Colors to Life Since 2010</Tagline>
           <Description>
-            Welcome to Kathmandu's premier paint destination. At Shaurav and Suvam Paint Shop, 
-            we offer a wide range of high-quality paints, expert color consultation, and 
-            unmatched customer service. Whether you're refreshing your home or tackling a 
-            commercial project, we have the perfect colors and products for you.
+            Welcome to Kathmandu's premier paint destination. At Shaurav and Suvam Paint Shop,
+            we offer a wide range of high-quality paints, expert color consultation.
           </Description>
-          <CTAButton type="primary">Explore Our Collection</CTAButton>
+          <CTAButton href="procucts">Explore Our Collection</CTAButton>
         </HeroContent>
       </Container>
     </HeroSection>

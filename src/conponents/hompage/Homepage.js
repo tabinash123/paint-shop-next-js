@@ -2,20 +2,16 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Intro from './heroSection/HeroSection';
-import CategorySection from './categorySection/CategorySection';
-import BestSellingProducts from './bestSellingProducts/BestSellingProducts';
+// import CategorySection from './categorySection/CategorySection';
+// import BestSellingProducts from './bestSellingProducts/BestSellingProducts';
 // Dynamically import larger components
-const WhyChooseUsSection = dynamic(() => import('./whyChooseUs/WhyToChooseUs'), { ssr: true });
-const Blog = dynamic(() => import('../Blog'), { ssr: true });
-const FAQ = dynamic(() => import('./FAQ'), { ssr: true });
+// const WhyChooseUsSection = dynamic(() => import('./whyChooseUs/WhyToChooseUs'), { ssr: true });
+// const Blog = dynamic(() => import('../Blog'), { ssr: true });
+// const FAQ = dynamic(() => import('./FAQ'), { ssr: true });
 
 const Homepage = ({ businessInfo }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    setIsLoaded(true);
-    // Add any analytics code here
-  }, []);
+
 
   return (
     <>
@@ -53,15 +49,15 @@ const Homepage = ({ businessInfo }) => {
         </script>
       </Head>
       <Intro />
-      {isLoaded && (
-        <>
-          <BestSellingProducts />
+      
+
+          {/* <BestSellingProducts />
           <WhyChooseUsSection />
           <CategorySection />
           <Blog />
-          <FAQ />
-        </>
-      )}
+          <FAQ /> */}
+  
+   
     </>
   );
 }
