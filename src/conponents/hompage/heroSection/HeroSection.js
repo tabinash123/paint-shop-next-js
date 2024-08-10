@@ -118,7 +118,7 @@ const Hero = () => {
         <HeroContent>
           <ShopName>Shaurav and Suvam Paint Shop</ShopName>
           <Description>
-            Welcome to Kathmandu's premier paint destination. At Shaurav and Suvam Paint Shop,
+            Welcome to Kathmandu premier paint destination. At Shaurav and Suvam Paint Shop,
             we offer a wide range of high-quality paints, expert color consultation.
           </Description>
           <CTAButton href="procucts">Explore Our Collection</CTAButton>
