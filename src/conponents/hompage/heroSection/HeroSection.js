@@ -121,7 +121,7 @@ const Hero = () => {
             Welcome to Kathmandu premier paint destination. At Shaurav and Suvam Paint Shop,
             we offer a wide range of high-quality paints, expert color consultation.
           </Description>
-          <CTAButton href="procucts">Explore Our Collection</CTAButton>
+          <CTAButton href="products">Explore Our Collection</CTAButton>
         </HeroContent>
       </Container>
     </HeroSection>
