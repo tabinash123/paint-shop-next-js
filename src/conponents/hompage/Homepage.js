@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Intro from "./heroSection/HeroSection";
 import CategorySection from "./categorySection/CategorySection";
 import BestSellingProducts from "./bestSellingProducts/BestSellingProducts";
+import Introduction from "./Introduction";
 
 // Dynamically import larger components
 const WhyChooseUsSection = dynamic(
@@ -65,12 +66,13 @@ const Homepage = ({ businessInfo }) => {
         </script>
       </Head>
       <Intro />
+      <Introduction />
 
       <BestSellingProducts />
       <WhyChooseUsSection />
       <CategorySection />
-      <Blog />
-      <FAQ />
+      {/* <Blog />
+      <FAQ /> */}
     </>
   );
 };

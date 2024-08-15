@@ -1,129 +1,229 @@
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
-import BackgroundImage from '../../../../public/assets/hero3.png';
+
+const breakpoints = {
+  mobile: '480px',
+  tablet: '768px',
+  desktop: '1024px',
+};
 
 const HeroSection = styled.section`
-  background-image: url(${BackgroundImage.src});
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 60px 0;
+  position: relative;
+  height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
-  position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); // Adding a dark overlay for better text visibility
-  }
-  @media (min-width: 768px) {
-    padding: 80px 0;
+  padding: 0 5%;
+  color: white;
+  overflow: hidden;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 5% 40px;
   }
 `;
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
+const BackgroundImageWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   z-index: 1;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    background: rgba(0, 0, 0, 0.7);
+  }
 `;
 
-const HeroContent = styled.div`
-  max-width: 100%;
-  text-align: center;
-  @media (min-width: 768px) {
+const Content = styled.div`
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+
+  @media (max-width: ${breakpoints.tablet}) {
     max-width: 70%;
-    margin: 0 auto;
   }
-  @media (min-width: 1024px) {
-    max-width: 60%;
-  }
-  @media (min-width: 1200px) {
-    max-width: 50%;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 100%;
   }
 `;
 
-const ShopName = styled.h1`
-  font-size: 36px;
+const Title = styled.h1`
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: bold;
-  margin-bottom: 15px;
-  color: #ffd700;
-  font-family: 'Graphik-Regular', sans-serif !important;
-  @media (min-width: 768px) {
-    font-size: 44px;
-  }
-  @media (min-width: 1024px) {
-    font-size: 52px;
-  }
-`;
-
-const Tagline = styled.h2`
-  font-size: 24px;
-  font-weight: normal;
   margin-bottom: 20px;
-  font-family: 'Graphik-Regular', sans-serif !important;
-  @media (min-width: 768px) {
-    font-size: 28px;
-  }
-  @media (min-width: 1024px) {
-    font-size: 32px;
+  line-height: 1.2;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
   }
 `;
 
-const Description = styled.p`
-  font-size: 18px;
-  margin-bottom: 25px;
-  font-family: 'Graphik-Regular', sans-serif !important;
-  line-height: 27px;
-  @media (min-width: 768px) {
-    font-size: 17px;
-    margin-bottom: 30px;
-  }
-  @media (min-width: 1024px) {
-    font-size: 18px;
+const Subtitle = styled.p`
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1rem;
   }
 `;
 
-const CTAButton = styled.a`
-  display: inline-block;
-  background-color: #E92B26;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 40px;
-  font-size: 16px;
-  font-weight: bold;
+const Highlight = styled.span`
+  color: #ff6b6b;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 10px;
+  }
+`;
+
+const Button = styled.button`
   padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   transition: all 0.3s ease;
-  &:hover, &:focus {
-    background-color: #f0c800;
-    color: #1a2a3a;
+  &:first-child {
+    background-color: #ff6b6b;
+    color: white;
+    &:hover {
+      background-color: #ff5252;
+      transform: translateY(-2px);
+    }
   }
-  @media (min-width: 768px) {
-    font-size: 17px;
+  &:last-child {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
   }
-  @media (min-width: 1024px) {
-    font-size: 18px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+  }
+`;
+
+const Stats = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    gap: 15px;
+  }
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-basis: calc(50% - 10px);
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-basis: calc(50% - 7.5px);
+  }
+`;
+
+const StatValue = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.2rem;
+  }
+`;
+
+const StatLabel = styled.div`
+  font-size: 0.9rem;
+  opacity: 0.8;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 0.8rem;
   }
 `;
 
 const Hero = () => {
   return (
     <HeroSection>
-      <Container>
-        <HeroContent>
-          <ShopName>Shaurav and Suvam Paint Shop</ShopName>
-          <Description>
-            Welcome to Kathmandu premier paint destination. At Shaurav and Suvam Paint Shop,
-            we offer a wide range of high-quality paints, expert color consultation.
-          </Description>
-          <CTAButton href="products">Explore Our Collection</CTAButton>
-        </HeroContent>
-      </Container>
+      <BackgroundImageWrapper>
+        <Image
+          src="/assets/shop images/shop2.jpg"
+          alt="Shaurav and Suvam Paint Shop"
+          layout="fill"
+          objectFit="cover"
+          quality={90}
+          priority
+        />
+      </BackgroundImageWrapper>
+      <Overlay />
+      <Content>
+        <Title>
+          Transform Your Space with <Highlight>Shaurav and Suvam Paint Shop</Highlight>
+        </Title>
+        <Subtitle>
+          Discover a world of colors and quality paints for your home and business in the heart of Kathmandu.
+        </Subtitle>
+        <ButtonGroup>
+          <Button>Explore Our Collection</Button>
+          <Button>Color Consultation</Button>
+        </ButtonGroup>
+        <Stats>
+          <StatItem>
+            <StatValue>1000+</StatValue>
+            <StatLabel>Color Options</StatLabel>
+          </StatItem>
+          <StatItem>
+            <StatValue>15+</StatValue>
+            <StatLabel>Years of Experience</StatLabel>
+          </StatItem>
+          <StatItem>
+            <StatValue>50+</StatValue>
+            <StatLabel>Brand Partners</StatLabel>
+          </StatItem>
+          <StatItem>
+            <StatValue>100%</StatValue>
+            <StatLabel>Customer Satisfaction</StatLabel>
+          </StatItem>
+        </Stats>
+      </Content>
     </HeroSection>
   );
 };

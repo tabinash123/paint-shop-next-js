@@ -1,235 +1,185 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import StarIcon from '@mui/icons-material/Star';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import reasonsData from '../../../data/reasonsData';
 
+const breakpoints = {
+  mobile: '480px',
+  tablet: '768px',
+  desktop: '1024px',
+};
+
+const colors = {
+  background: '#003366',
+  text: '#FFFFFF',
+  accent: '#FF6B6B',
+  cardBg: 'rgba(255, 255, 255, 0.1)',
+};
+
 const SectionContainer = styled.section`
-  padding: 4rem 1rem;
-  background-color: #f5f5f5;
+  padding: 4rem 5%;
+  background-color: ${colors.background};
+  color: ${colors.text};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 3rem 5%;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 2rem 5%;
+  }
 `;
 
 const SectionContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    flex-direction: column;
+  }
 `;
 
-const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+const LeftSection = styled.div`
+  flex: 1;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-bottom: 2rem;
+  }
 `;
 
 const SectionHeader = styled(motion.h2)`
-  color: #003366;
- font-size: 2rem;
-  font-weight: 800;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0 0.5rem;
+  color: ${colors.text};
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  margin-bottom: 1rem;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.75rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.8rem;
   }
 `;
 
-const HeaderIcon = styled(motion.span)`
-  color: #003366;
-  font-size: 2.5rem;
-  margin: 0 0.5rem;
+const SectionDescription = styled.p`
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: ${colors.text};
+  opacity: 0.9;
+  margin-bottom: 2rem;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.75rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 0.9rem;
   }
 `;
 
-const SubheadingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 3rem;
-`;
-
-const Subheading = styled(motion.p)`
+const CTAButton = styled.button`
+  background-color: ${colors.accent};
+  color: ${colors.text};
+  border: none;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  font-weight: 400;
-  color: #e91e63;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  margin: 0 0.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
-  @media (max-width: 768px) {
-    font-size: 1rem;
+  &:hover {
+    background-color: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 480px) {
-    font-size: 0.875rem;
-  }
-`;
-
-const SubheadingIcon = styled(motion.span)`
-  color: #e91e63;
-  font-size: 1.25rem;
-  margin: 0 0.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.875rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 `;
 
 const ReasonsContainer = styled.div`
+  flex: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
   }
 `;
 
 const ReasonCard = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  border: 1px solid #e0e0e0;
+  background-color: ${colors.cardBg};
+  padding: 1.5rem;
   border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 1.2rem;
   }
 `;
 
 const IconContainer = styled.div`
-  margin-bottom: 10px;
-  color: #FF5733;
+  margin-bottom: 1rem;
+  color: ${colors.accent};
   font-size: 2rem;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.5rem;
+  }
 `;
 
-const ReasonTitle = styled.h6`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+const ReasonTitle = styled.h3`
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 5px;
+  color: ${colors.text};
+  margin-bottom: 0.5rem;
 
-  @media (max-width: 600px) {
-    font-size: 0.875rem;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 0.75rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1rem;
   }
 `;
 
 const ReasonDescription = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.75rem;
-  color: #555;
+  font-size: 0.9rem;
+  color: ${colors.text};
+  opacity: 0.8;
 
-  @media (max-width: 600px) {
-    font-size: 0.75rem;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 0.625rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 0.8rem;
   }
 `;
 
 const WhyChooseUs = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
   return (
     <SectionContainer>
       <SectionContent>
-        <HeaderContainer>
-         
+        <LeftSection>
           <SectionHeader
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Why Choose Us
+            Why Choose Us?
           </SectionHeader>
-          <HeaderIcon
-            as={motion.div}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <CheckCircleIcon />
-          </HeaderIcon>
-        </HeaderContainer>
-        <SubheadingContainer>
-          <SubheadingIcon
-            as={motion.div}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <StarIcon />
-          </SubheadingIcon>
-          <Subheading
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Top reasons to choose us
-          </Subheading>
-          <SubheadingIcon
-            as={motion.div}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <StarIcon />
-          </SubheadingIcon>
-        </SubheadingContainer>
+          <SectionDescription>
+            Shaurav and Suvam Paint Shop is a top-class paint shop that offers quality products and services to its clients. We are a one-stop solution providing excellent paint options for every need. Our experts follow a robust approach that unlocks the full potential of color in your space.
+          </SectionDescription>
+          <CTAButton>Talk To Experts Now</CTAButton>
+        </LeftSection>
         <ReasonsContainer>
           {reasonsData.map((reason, index) => (
             <ReasonCard
               key={index}
-              whileHover={{ scale: 1.05 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <IconContainer>
-                <motion.div
-                  animate={{
-                    rotateY: hoveredIndex === index ? 360 : 0,
-                    color: hoveredIndex === index ? '#e91e63' : '#FF5733',
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {reason.icon}
-                </motion.div>
-              </IconContainer>
+              <IconContainer>{reason.icon}</IconContainer>
               <ReasonTitle>{reason.title}</ReasonTitle>
               <ReasonDescription>{reason.description}</ReasonDescription>
             </ReasonCard>
