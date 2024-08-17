@@ -14,15 +14,16 @@ const HeroSection = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 5%;
+  // padding: 0 5%;
   color: white;
   overflow: hidden;
 
   @media (max-width: ${breakpoints.mobile}) {
     height: auto;
     min-height: 100vh;
-    padding: 80px 5% 40px;
+    // padding: 80px 5% 40px;
   }
+
 `;
 
 const BackgroundImageWrapper = styled.div`
@@ -56,14 +57,15 @@ const Overlay = styled.div`
 const Content = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 50%;
+  max-width: 40%;
+  margin-left: 5%;
 
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 70%;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    max-width: 100%;
+    max-width: 80%;
   }
 `;
 
@@ -111,6 +113,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  width:200px;
   &:first-child {
     background-color: #ff6b6b;
     color: white;
@@ -130,7 +133,8 @@ const Button = styled.button`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    width: 100%;
+     width:200px;
+
   }
 `;
 

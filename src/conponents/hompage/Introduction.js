@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import imag from '../../../public/assets/shop images/shop3.jpg'
+import shopImage from '../../../public/assets/shop images/shop3.jpg'
+import asianPaintLogo from '../../../public/assets/asianpaint.jpg'
+// import asianPaintLogo from '../../../public/assets/asian-paints-logo.png'; // Add this import
 
 const IntroSection = styled.section`
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   padding: 100px 0;
   color: #222;
 `;
@@ -37,7 +39,7 @@ const Title = styled.h2`
   font-size: clamp(2rem, 5vw, 3rem);
   color: #222;
   margin-bottom: 30px;
-  font-weight: 800;
+  font-weight: 700;
 `;
 
 const Highlight = styled.span`
@@ -45,10 +47,25 @@ const Highlight = styled.span`
 `;
 
 const Description = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   line-height: 1.7;
   margin-bottom: 30px;
+  font-weight: 300;
+`;
+
+const AuthorizedDealerInfo = styled.p`
+  font-size: 1.0rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
   font-weight: 500;
+  color: #ff4f4f;
+`;
+
+const LogoWrapper = styled.div`
+  width: 300px;
+  height: 150px;
+  position: relative;
+  margin-bottom: 20px;
 `;
 
 const FeatureList = styled.ul`
@@ -57,11 +74,11 @@ const FeatureList = styled.ul`
 `;
 
 const FeatureItem = styled.li`
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
 
   &:before {
     content: '✓';
@@ -77,9 +94,8 @@ const ImageWrapper = styled.div`
   position: relative;
   height: 350px;
   width: 100%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     height: 450px;
   }
 `;
@@ -91,12 +107,23 @@ const Introduction = () => {
         <ContentWrapper>
           <Title>Welcome to <Highlight>Shaurav and Suvam Paint Shop</Highlight></Title>
           <Description>
-            For over 15 years, we have been Kathmandu premier destination for all your painting needs. 
-            Our extensive range of high-quality paints, expert color consultation, and unwavering commitment to 
+            For over 15 years, we have been Kathmandu's premier destination for all your painting needs.
+            Our extensive range of high-quality paints, expert color consultation, and unwavering commitment to
             customer satisfaction make us the top choice for homeowners and businesses alike.
           </Description>
+          <AuthorizedDealerInfo>
+            Proud to be an authorized dealer of Asian Paints Nepal, bringing you the best in quality and innovation.
+          </AuthorizedDealerInfo>
+          <LogoWrapper>
+            <Image
+              src={asianPaintLogo}
+              alt="Asian Paints Logo"
+              layout="fill"
+              objectFit="contain"
+            />
+          </LogoWrapper>
           <FeatureList>
-            <FeatureItem>Extensive selection of premium paints and finishes</FeatureItem>
+            <FeatureItem>Extensive selection of premium Asian Paints products</FeatureItem>
             <FeatureItem>Expert color consultation and precise matching services</FeatureItem>
             <FeatureItem>Eco-friendly and low-VOC options for conscious consumers</FeatureItem>
             <FeatureItem>Professional-grade tools and accessories for perfect results</FeatureItem>
@@ -105,7 +132,7 @@ const Introduction = () => {
         </ContentWrapper>
         <ImageWrapper>
           <Image
-            src={imag}
+            src={shopImage}
             alt="Shaurav and Suvam Paint Shop Interior"
             layout="fill"
             objectFit="cover"
