@@ -105,9 +105,9 @@ const Introduction = () => {
     <IntroSection>
       <Container>
         <ContentWrapper>
-          <Title>Welcome to <Highlight>Shaurav and Suvam Paint Shop</Highlight></Title>
+          <Title>Welcome to <Highlight>Suvam  and Shaurav Paint Shop</Highlight></Title>
           <Description>
-            For over 15 years, we have been Kathmandu's premier destination for all your painting needs.
+            For over 15 years, we have been Kathmandu premier destination for all your painting needs.
             Our extensive range of high-quality paints, expert color consultation, and unwavering commitment to
             customer satisfaction make us the top choice for homeowners and businesses alike.
           </Description>

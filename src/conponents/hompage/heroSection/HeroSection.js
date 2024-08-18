@@ -200,7 +200,7 @@ const Hero = () => {
       <Overlay />
       <Content>
         <Title>
-          Transform Your Space with <Highlight>Shaurav and Suvam Paint Shop</Highlight>
+          Transform Your Space with <Highlight>Suvam  and Shaurav Paint Shop</Highlight>
         </Title>
         <Subtitle>
           Discover a world of colors and quality paints for your home and business in the heart of Kathmandu.
