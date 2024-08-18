@@ -66,11 +66,11 @@ const Homepage = ({ businessInfo }) => {
         </script>
       </Head>
       <Intro />
-      {/* <Introduction />
+      <Introduction />
 
       <BestSellingProducts />
       <WhyChooseUsSection />
-      <CategorySection /> */}
+      <CategorySection />
       {/* <Blog />
       <FAQ /> */}
     </>
